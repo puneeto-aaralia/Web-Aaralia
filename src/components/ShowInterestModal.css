@@ -53,7 +53,7 @@
   border-radius: var(--radius-full);
   font-size: 11px;
   font-weight: 800;
-  color: #EA580C;
+  color: #E85739;
   letter-spacing: 0.8px;
   margin-bottom: 14px;
 }
@@ -112,8 +112,8 @@
 
 .interest-field input:focus,
 .interest-field select:focus {
-  border-color: #EA580C;
-  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+  border-color: #E85739;
+  box-shadow: 0 0 0 3px rgba(232, 87, 57, 0.15);
 }
 
 .interest-modules-group {
@@ -154,8 +154,15 @@
   background: #F1F5F9;
 }
 
+.checkbox-pill.is-selected {
+  background: #FFF0ED;
+  border-color: #E85739;
+  color: #E85739;
+  font-weight: 700;
+}
+
 .checkbox-pill input {
-  accent-color: #EA580C;
+  accent-color: #E85739;
 }
 
 .interest-submit-btn {
@@ -164,21 +171,21 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #EA580C;
+  background: #E85739;
   color: #FFFFFF;
   padding: 14px 28px;
   border-radius: var(--radius-full);
   font-size: 15px;
   font-weight: 700;
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
+  box-shadow: 0 6px 20px rgba(232, 87, 57, 0.35);
   transition: all 0.2s;
   cursor: pointer;
 }
 
 .interest-submit-btn:hover {
-  background: #D94826;
+  background: #D74628;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.45);
+  box-shadow: 0 10px 25px rgba(232, 87, 57, 0.45);
 }
 
 /* Success state */

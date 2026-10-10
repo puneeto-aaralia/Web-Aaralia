@@ -1,17 +1,17 @@
 :root {
-  /* Color Palette */
-  --brand-orange: #FF5A36;
-  --brand-orange-hover: #F04A25;
-  --brand-orange-soft: rgba(255, 90, 54, 0.08);
-  --brand-orange-border: rgba(255, 90, 54, 0.24);
-  --brand-orange-glow: rgba(255, 90, 54, 0.35);
+  /* Color Palette matching Logo & Design */
+  --brand-orange: #E85739;
+  --brand-orange-hover: #D74628;
+  --brand-orange-soft: rgba(232, 87, 57, 0.08);
+  --brand-orange-border: rgba(232, 87, 57, 0.25);
+  --brand-orange-glow: rgba(232, 87, 57, 0.35);
 
   /* Light Theme / Neutral Base */
   --bg-page: #FAFBFD;
   --bg-card: #FFFFFF;
-  --text-headline: #0C1523;
-  --text-body: #5A6980;
-  --text-muted: #8A99AD;
+  --text-headline: #0B1320;
+  --text-body: #526071;
+  --text-muted: #8292A5;
   --border-light: #E4E8F0;
   --border-subtle: #EEF2F6;
 
@@ -26,7 +26,7 @@
 
   /* Card Accent Colors */
   --accent-peach-bg: #FFF0ED;
-  --accent-peach-text: #FF5A36;
+  --accent-peach-text: #E85739;
   --accent-mint-bg: #E3F8F5;
   --accent-mint-text: #0D9488;
   --accent-amber-bg: #FEF6E4;

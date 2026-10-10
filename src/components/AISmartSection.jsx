@@ -1,102 +1,43 @@
 import React, { useState } from 'react';
-import { Sparkles, ArrowRight, Check, Send, Bot, ShieldCheck, Zap, Compass, RefreshCw } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import './AISmartSection.css';
 
-const PRESET_QUERIES = [
-  {
-    query: 'Where should our people team focus this week?',
-    lead: 'I found three priorities based on current people signals:',
-    items: [
-      { num: '01', title: 'Complete 4 pending onboarding plans', tag: 'High Impact', tagType: 'impact', action: 'Review Now' },
-      { num: '02', Support: true, title: 'Support the Customer Success team', tag: 'Engagement', tagType: 'engagement', action: 'View Context' },
-      { num: '03', title: 'Close critical skill gaps in AI readiness', tag: 'Learning', tagType: 'learning', action: 'Assign Courses' }
-    ]
-  },
-  {
-    query: 'Analyze team retention and flight risks for Q4',
-    lead: 'Signal analysis completed across 142 team members:',
-    items: [
-      { num: '01', title: 'Schedule 1:1 check-in with Senior DevOps engineers', tag: 'High Impact', tagType: 'impact', action: 'Book Meetings' },
-      { num: '02', title: 'Review compensation benchmark for CS Leads', tag: 'Compensation', tagType: 'engagement', action: 'Open Salary Data' },
-      { num: '03', title: 'Celebrate 3 anniversaries on Friday standup', tag: 'Culture', tagType: 'learning', action: 'Send Kudos' }
-    ]
-  },
-  {
-    query: 'What deal blockers are slowing CRM conversions?',
-    lead: 'Pipeline friction detected across 18 enterprise opportunities:',
-    items: [
-      { num: '01', title: 'Security review stalled on Acme Corp deal ($84k ARR)', tag: 'High Impact', tagType: 'impact', action: 'Ping SecOps' },
-      { num: '02', title: 'Follow up on 5 pending stakeholder sign-offs', tag: 'Sales Velocity', tagType: 'engagement', action: 'Send Reminders' },
-      { num: '03', title: 'Generate executive summary for Apex Global', tag: 'AI Assist', tagType: 'learning', action: 'Generate PDF' }
-    ]
-  }
-];
-
 export default function AISmartSection() {
-  const [activeQueryIndex, setActiveQueryIndex] = useState(0);
-  const [customInput, setCustomInput] = useState('');
-  const [completedActions, setCompletedActions] = useState({});
-  const [isThinking, setIsThinking] = useState(false);
-  const [toastMessage, setToastMessage] = useState(null);
+  const [followUpQuery, setFollowUpQuery] = useState('');
+  const [followUpSubmitted, setFollowUpSubmitted] = useState(false);
 
-  const currentPreset = PRESET_QUERIES[activeQueryIndex];
-
-  const handleSelectPreset = (index) => {
-    setIsThinking(true);
-    setActiveQueryIndex(index);
-    setTimeout(() => {
-      setIsThinking(false);
-    }, 300);
-  };
-
-  const handleCustomSubmit = (e) => {
+  const handleFollowUpSubmit = (e) => {
     e.preventDefault();
-    if (!customInput.trim()) return;
-    setIsThinking(true);
+    if (!followUpQuery.trim()) return;
+    setFollowUpSubmitted(true);
     setTimeout(() => {
-      setIsThinking(false);
-      showToast(`Aaralia synthesized answer for: "${customInput}"`);
-      setCustomInput('');
-    }, 600);
-  };
-
-  const handleActionClick = (itemTitle) => {
-    setCompletedActions(prev => ({
-      ...prev,
-      [itemTitle]: !prev[itemTitle]
-    }));
-    showToast(completedActions[itemTitle] ? `Action reopened` : `Action executed: "${itemTitle}"`);
-  };
-
-  const showToast = (msg) => {
-    setToastMessage(msg);
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 3200);
+      setFollowUpSubmitted(false);
+      setFollowUpQuery('');
+    }, 3000);
   };
 
   return (
     <section className="ai-section" id="ai-section">
       <div className="ai-container">
-        {/* Top Meet Pill */}
+        {/* Eyebrow Pill matching Images 2 & 3 */}
         <div className="ai-badge-wrapper">
           <div className="ai-badge">
-            <Sparkles size={14} className="badge-sparkle-icon" />
+            <Sparkles size={13} className="badge-sparkle-icon" />
             <span className="badge-title">MEET AARALIA AI</span>
           </div>
         </div>
 
-        {/* Section Headline */}
+        {/* Section Headline matching Images 2 & 3 */}
         <h2 className="ai-headline">
           Intelligence that works <span className="highlight-coral">with your people.</span>
         </h2>
 
-        {/* Section Subtitle */}
+        {/* Section Subtitle matching Images 2 & 3 */}
         <p className="ai-subtitle">
-          Not AI for automation’s sake. Aaralia understands context, surfaces what matters, and helps everyone make their next move with confidence.
+          Not AI for automation's sake. Aaralia understands context, surfaces what matters, and helps everyone make their next move with confidence.
         </p>
 
-        {/* 4 Feature Pillars Grid */}
+        {/* 4 Feature Pillars 2x2 Grid matching Image 3 */}
         <div className="ai-pillars-grid">
           <div className="pillar-item">
             <h3 className="pillar-title">Predict what's next</h3>
@@ -119,131 +60,82 @@ export default function AISmartSection() {
           </div>
         </div>
 
-        {/* Interactive "Ask Aaralia" Card Terminal */}
+        {/* "Ask Aaralia" Terminal Card matching Images 3 & 4 */}
         <div className="ai-terminal-wrapper">
           <div className="ai-terminal-card">
             {/* Terminal Header */}
             <div className="terminal-header">
               <div className="terminal-brand-group">
                 <div className="terminal-logo-box">
-                  <Sparkles size={18} color="#FFFFFF" />
+                  <Sparkles size={17} color="#FFFFFF" />
                 </div>
                 <div className="terminal-brand-info">
                   <h4 className="terminal-title">Ask Aaralia</h4>
                   <span className="terminal-subtitle">Connected to your organization</span>
                 </div>
               </div>
+            </div>
 
-              <div className="terminal-status-badge">
-                <span className="live-pulse"></span>
-                <span>Real-time Context Sync</span>
+            {/* User Prompt Bubble matching Images 3 & 4 */}
+            <div className="terminal-user-bubble-row">
+              <div className="terminal-user-bubble">
+                <span>Where should our people team focus this week?</span>
               </div>
             </div>
 
-            {/* Prompt Selector Pills */}
-            <div className="query-switcher-row">
-              <span className="switcher-label">Sample queries:</span>
-              <div className="query-pill-list">
-                {PRESET_QUERIES.map((item, idx) => (
-                  <button
-                    key={idx}
-                    className={`query-pill ${activeQueryIndex === idx ? 'active' : ''}`}
-                    onClick={() => handleSelectPreset(idx)}
-                  >
-                    {item.query}
-                  </button>
-                ))}
+            {/* Aaralia Response Lead matching Images 3 & 4 */}
+            <div className="terminal-response-lead">
+              <div className="response-sparkle-mark">
+                <Sparkles size={14} color="#FFFFFF" />
               </div>
+              <span className="response-lead-text">
+                I found three priorities based on current people signals:
+              </span>
             </div>
 
-            {/* Query Input Box */}
-            <form className="terminal-input-container" onSubmit={handleCustomSubmit}>
-              <div className="terminal-input-bubble">
-                <input
-                  type="text"
-                  className="terminal-input"
-                  value={customInput ? customInput : currentPreset.query}
-                  onChange={(e) => setCustomInput(e.target.value)}
-                  placeholder="Ask Aaralia any question across your people, CRM, and payroll..."
-                />
-                <button type="submit" className="terminal-send-btn" aria-label="Send query">
-                  <Send size={15} />
-                </button>
-              </div>
-            </form>
-
-            {/* Aaralia Response Section */}
-            <div className="terminal-response-container">
-              {isThinking ? (
-                <div className="terminal-loading">
-                  <RefreshCw size={20} className="spinning-icon" />
-                  <span>Synthesizing cross-system intelligence...</span>
+            {/* 3 Actionable Priority Rows matching Images 3 & 4 */}
+            <div className="terminal-priority-list">
+              <div className="priority-row-item">
+                <div className="priority-left">
+                  <span className="priority-num">01</span>
+                  <span className="priority-title">Complete 4 pending onboarding plans</span>
                 </div>
-              ) : (
-                <>
-                  <div className="response-lead-row">
-                    <div className="response-avatar">
-                      <Sparkles size={14} color="#FFFFFF" />
-                    </div>
-                    <span className="response-lead-text">{currentPreset.lead}</span>
-                  </div>
+                <span className="priority-tag tag-gray">High Impact</span>
+              </div>
 
-                  {/* 3 Actionable Cards */}
-                  <div className="response-cards-list">
-                    {currentPreset.items.map((item, i) => {
-                      const isDone = completedActions[item.title];
-                      return (
-                        <div
-                          key={i}
-                          className={`response-item-card ${isDone ? 'is-completed' : ''}`}
-                          onClick={() => handleActionClick(item.title)}
-                        >
-                          <div className="item-left-block">
-                            <span className="item-index">{item.num}</span>
-                            <span className={`item-title ${isDone ? 'line-through' : ''}`}>
-                              {item.title}
-                            </span>
-                          </div>
+              <div className="priority-row-item">
+                <div className="priority-left">
+                  <span className="priority-num">02</span>
+                  <span className="priority-title">Support the Customer Success team</span>
+                </div>
+                <span className="priority-tag tag-gray">Engagement</span>
+              </div>
 
-                          <div className="item-right-block">
-                            <span className={`item-tag tag-${item.tagType}`}>
-                              {item.tag}
-                            </span>
-                            <button
-                              className={`item-action-btn ${isDone ? 'btn-done' : ''}`}
-                              onClick={(e) => { e.stopPropagation(); handleActionClick(item.title); }}
-                            >
-                              {isDone ? (
-                                <>
-                                  <Check size={13} />
-                                  <span>Executed</span>
-                                </>
-                              ) : (
-                                <>
-                                  <span>{item.action}</span>
-                                  <ArrowRight size={13} />
-                                </>
-                              )}
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </>
-              )}
+              <div className="priority-row-item">
+                <div className="priority-left">
+                  <span className="priority-num">03</span>
+                  <span className="priority-title">Close critical skill gaps in AI readiness</span>
+                </div>
+                <span className="priority-tag tag-gray">Learning</span>
+              </div>
             </div>
+
+            {/* Follow-up Input Box matching Image 4 */}
+            <form className="terminal-followup-form" onSubmit={handleFollowUpSubmit}>
+              <input
+                type="text"
+                className="terminal-followup-input"
+                placeholder={followUpSubmitted ? "Synthesizing cross-system insights..." : "Ask a follow-up..."}
+                value={followUpQuery}
+                onChange={(e) => setFollowUpQuery(e.target.value)}
+              />
+              <button type="submit" className="terminal-followup-btn" aria-label="Send follow up">
+                <ArrowRight size={15} />
+              </button>
+            </form>
           </div>
         </div>
       </div>
-
-      {/* Floating Action Toast */}
-      {toastMessage && (
-        <div className="ai-toast-notification">
-          <Sparkles size={16} color="var(--brand-orange)" />
-          <span>{toastMessage}</span>
-        </div>
-      )}
     </section>
   );
 }

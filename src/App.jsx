@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import DashboardShowcase from './components/DashboardShowcase';
 import FeatureCards from './components/FeatureCards';
 import AISmartSection from './components/AISmartSection';
+import HRSuiteSection from './components/HRSuiteSection';
+import DashboardShowcase from './components/DashboardShowcase';
 import AdminDashboard from './components/AdminDashboard';
 import ShowInterestModal from './components/ShowInterestModal';
 import Footer from './components/Footer';
@@ -21,29 +22,31 @@ function App() {
     <div className="app-root">
       {activeView === 'landing' ? (
         <>
-          {/* Top Sticky Header */}
+          {/* Top Clean Header matching design */}
           <Navbar
             activeView={activeView}
             setActiveView={setActiveView}
-            onOpenDemoModal={() => setIsInterestModalOpen(true)}
           />
 
           <main id="main-content">
-            {/* 1. Main Hero: "Work gets better when everything works together." (Screenshot 2) */}
+            {/* 1. Main Hero: "Work gets better when everything works together." */}
             <Hero onShowInterest={() => setIsInterestModalOpen(true)} />
 
-            {/* 2. Interactive Operating Layer Showcase with Magnifying Lenses (Screenshots 4 & 5) */}
-            <DashboardShowcase
-              onLaunchFullDashboard={() => setActiveView('dashboard')}
-            />
-
-            {/* 3. Core Solutions: "Less switching. More moving forward." (Screenshots 1 & 3) */}
+            {/* 2. Platform Core Solutions: "Less switching. More moving forward." (Images 1 & 2) */}
             <FeatureCards
               onExploreFeature={() => setIsInterestModalOpen(true)}
             />
 
-            {/* 4. Meet Aaralia AI: "Intelligence that works with your people." (Screenshot 3) */}
+            {/* 3. Meet Aaralia AI: "Intelligence that works with your people." (Images 2, 3, & 4) */}
             <AISmartSection />
+
+            {/* 4. The Complete HR Suite: "One place for every people operation." (Image 4 bottom) */}
+            <HRSuiteSection />
+
+            {/* 5. Operating Layer & Dashboard Showcase with Magnifying Lenses (Image 5) */}
+            <DashboardShowcase
+              onLaunchFullDashboard={() => setActiveView('dashboard')}
+            />
           </main>
 
           {/* Footer with Links and Demo CTA */}

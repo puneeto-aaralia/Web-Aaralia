@@ -1,76 +1,77 @@
 .hero-master-section {
   position: relative;
   overflow: hidden;
-  padding: 80px 0 60px 0;
-  background-color: var(--bg-page);
+  padding: 72px 0 52px 0;
+  background-color: #FFFFFF;
 }
 
-/* Background Peach Decorative Circle matching Figma Screenshot 2 */
+/* Background Peach Decorative Circle matching Figma Screenshot */
 .hero-peach-circle {
   position: absolute;
   top: 50%;
-  right: -5%;
+  right: 2%;
   transform: translateY(-50%);
-  width: 580px;
-  height: 580px;
+  width: clamp(480px, 46vw, 680px);
+  height: clamp(480px, 46vw, 680px);
   border-radius: 50%;
-  background: #FEECE6;
+  background: #FEEAE3;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.95;
+  opacity: 1;
 }
 
 .hero-master-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 48px;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
 /* Eyebrow Pill */
 .hero-eyebrow-wrapper {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .hero-ai-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
+  gap: 7px;
+  padding: 6px 14px;
   background: #F1F4F9;
   border: 1px solid #E2E8F0;
   border-radius: var(--radius-full);
 }
 
 .hero-sparkle-icon {
-  color: #1E293B;
+  color: #0F172A;
 }
 
 .hero-ai-badge-text {
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.9px;
+  letter-spacing: 0.8px;
   color: #0F172A;
   text-transform: uppercase;
 }
 
 /* Headline */
 .hero-master-title {
-  font-size: 64px;
+  font-size: clamp(42px, 5.2vw, 72px);
   font-weight: 850;
   line-height: 1.1;
-  letter-spacing: -1.8px;
+  letter-spacing: -2px;
   color: #0B1320;
-  max-width: 860px;
-  margin: 0 0 24px 0;
+  max-width: 900px;
+  margin: 0 0 22px 0;
 }
 
 .hero-coral-accent {
-  color: #EB5937;
+  color: #E85739;
   display: inline-block;
 }
 
@@ -78,36 +79,39 @@
 .hero-master-sub {
   font-size: 18.5px;
   line-height: 1.6;
-  color: #55657E;
-  max-width: 760px;
-  margin: 0 0 36px 0;
+  color: #526071;
+  max-width: 720px;
+  margin: 0 0 54px 0;
   font-weight: 450;
 }
 
-/* CTA Button */
-.hero-cta-wrapper {
-  margin-bottom: 56px;
+/* Horizontally Centered CTA Button Container */
+.hero-cta-center-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
 }
 
 .hero-primary-cta {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: #EB5937;
+  background: #E85739;
   color: #FFFFFF;
-  padding: 16px 36px;
+  padding: 16px 38px;
   border-radius: var(--radius-full);
   font-size: 16px;
   font-weight: 700;
-  box-shadow: 0 10px 24px -4px rgba(235, 89, 55, 0.4);
+  box-shadow: 0 12px 28px -4px rgba(232, 87, 57, 0.45);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .hero-primary-cta:hover {
-  background: #D94826;
+  background: #D74628;
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -4px rgba(235, 89, 55, 0.5);
+  box-shadow: 0 16px 34px -4px rgba(232, 87, 57, 0.55);
 }
 
 .cta-arrow-icon {
@@ -118,19 +122,20 @@
   transform: translateX(4px);
 }
 
-/* Three Value Pillars Row */
-.hero-pillars-row {
+/* Horizontally Centered Three Value Pillars Row */
+.hero-pillars-center-row {
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 36px;
   flex-wrap: wrap;
-  padding-top: 10px;
 }
 
 .pillar-bullet {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .pillar-teal-dot {
@@ -150,37 +155,47 @@
 /* Responsive */
 @media (max-width: 960px) {
   .hero-master-title {
-    font-size: 48px;
+    font-size: 44px;
     letter-spacing: -1.2px;
   }
+  .hero-master-container {
+    padding: 0 24px;
+  }
   .hero-peach-circle {
-    width: 400px;
-    height: 400px;
-    right: -15%;
+    width: 380px;
+    height: 380px;
+    right: -10%;
+  }
+  .hero-pillars-center-row {
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
   .hero-master-section {
-    padding: 50px 0 40px 0;
+    padding: 44px 0 36px 0;
   }
   .hero-master-container {
     padding: 0 20px;
   }
   .hero-master-title {
-    font-size: 36px;
+    font-size: 34px;
     letter-spacing: -0.8px;
   }
   .hero-master-sub {
     font-size: 16px;
+    margin-bottom: 36px;
+  }
+  .hero-cta-center-wrapper {
+    margin-bottom: 32px;
   }
   .hero-primary-cta {
     width: 100%;
     justify-content: center;
   }
-  .hero-pillars-row {
+  .hero-pillars-center-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: center;
+    gap: 14px;
   }
 }

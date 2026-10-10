@@ -63,7 +63,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
         ) : (
           <div className="interest-form-state">
             <div className="interest-modal-badge">
-              <Sparkles size={14} color="#EA580C" />
+              <Sparkles size={14} color="#E85739" />
               <span>EARLY ACCESS & DEMO</span>
             </div>
 
@@ -79,7 +79,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                   <input
                     type="text"
                     required
-                    placeholder="Sameer Mehta"
+                    placeholder="John"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
@@ -89,7 +89,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                   <input
                     type="email"
                     required
-                    placeholder="sameer@company.com"
+                    placeholder="john@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
@@ -124,7 +124,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
               <div className="interest-modules-group">
                 <label className="group-label">Select solutions of interest:</label>
                 <div className="modules-checkboxes">
-                  <label className="checkbox-pill">
+                  <label className={`checkbox-pill ${formData.modules.people ? 'is-selected' : ''}`}>
                     <input
                       type="checkbox"
                       checked={formData.modules.people}
@@ -132,7 +132,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                     />
                     <span>People & HR</span>
                   </label>
-                  <label className="checkbox-pill">
+                  <label className={`checkbox-pill ${formData.modules.crm ? 'is-selected' : ''}`}>
                     <input
                       type="checkbox"
                       checked={formData.modules.crm}
@@ -140,7 +140,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                     />
                     <span>CRM</span>
                   </label>
-                  <label className="checkbox-pill">
+                  <label className={`checkbox-pill ${formData.modules.payroll ? 'is-selected' : ''}`}>
                     <input
                       type="checkbox"
                       checked={formData.modules.payroll}
@@ -148,7 +148,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                     />
                     <span>Payroll</span>
                   </label>
-                  <label className="checkbox-pill">
+                  <label className={`checkbox-pill ${formData.modules.learning ? 'is-selected' : ''}`}>
                     <input
                       type="checkbox"
                       checked={formData.modules.learning}
@@ -158,7 +158,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                   </label>
                 </div>
               </div>
-
+{/* saurabh */}
               <button type="submit" className="interest-submit-btn">
                 <span>Submit Your Request</span>
                 <ArrowRight size={16} />

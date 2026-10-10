@@ -14,8 +14,9 @@ import {
   ChevronDown,
   LayoutDashboard,
   ExternalLink,
+  Sparkles,
   Layers,
-  Sparkles
+  ChevronRight
 } from 'lucide-react';
 import './DashboardShowcase.css';
 
@@ -29,26 +30,54 @@ const DEPARTMENT_TABS = [
 
 export default function DashboardShowcase({ onLaunchFullDashboard }) {
   const [activeTab, setActiveTab] = useState('people');
-  const [lensHovered, setLensHovered] = useState(null);
+  const [activeLens, setActiveLens] = useState('left'); // 'left' | 'right'
 
   const activeTabData = DEPARTMENT_TABS.find(t => t.id === activeTab) || DEPARTMENT_TABS[0];
 
   return (
     <section className="showcase-section" id="dashboard-preview">
       <div className="showcase-container">
-        {/* Mockup Frame Wrapper with Magnifying Lens Overlays */}
+        {/* Mobile Spotlight Focus Switcher */}
+        <div className="showcase-mobile-lens-tabs">
+          <button
+            type="button"
+            className={`mobile-lens-btn ${activeLens === 'left' ? 'active' : ''}`}
+            onClick={() => setActiveLens('left')}
+          >
+            <span>1. Overview & KPIs</span>
+          </button>
+          <button
+            type="button"
+            className={`mobile-lens-btn ${activeLens === 'right' ? 'active' : ''}`}
+            onClick={() => setActiveLens('right')}
+          >
+            <span>2. Live Clock-In</span>
+          </button>
+          <button
+            type="button"
+            className="mobile-lens-btn launch-direct"
+            onClick={onLaunchFullDashboard}
+          >
+            <Sparkles size={13} />
+            <span>Open Live App</span>
+          </button>
+        </div>
+
+        {/* Mockup Frame Wrapper with Responsive Magnifying Lens Overlays */}
         <div className="showcase-mockup-wrapper">
-          {/* Background Blurred Base Dashboard Canvas */}
-          <div className="mockup-canvas-base">
+          {/* Base Dashboard Canvas */}
+          <div className="mockup-canvas-base" onClick={onLaunchFullDashboard} role="button" tabIndex={0} title="Click to open interactive dashboard">
             {/* Top Bar */}
             <div className="mockup-topbar">
               <div className="mockup-topbar-left">
                 <AaraliaLogo variant="dark" size="small" showPoweredBy={true} />
               </div>
+
               <div className="mockup-search-pill">
                 <Search size={14} color="#64748B" />
                 <span>Search employees, approvals, metrics...</span>
               </div>
+
               <div className="mockup-topbar-right">
                 <div className="mockup-punch-pill">
                   <Clock size={13} color="#FFFFFF" />
@@ -62,7 +91,7 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                 <div className="mockup-user-avatar">
                   <img
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80"
-                    alt="User"
+                    alt="Sameer"
                   />
                 </div>
               </div>
@@ -75,7 +104,7 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                 <div className="sidebar-group">
                   <span className="sidebar-group-title">MAIN MENU</span>
                   <div className="sidebar-item active">
-                    <LayoutDashboard size={15} color="#EA580C" />
+                    <LayoutDashboard size={15} color="#E85739" />
                     <span className="text-active">Dashboard</span>
                   </div>
                   <div className="sidebar-subitem active">Admin Dashboard</div>
@@ -230,75 +259,102 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
             </div>
           </div>
 
-          {/* CIRCULAR MAGNIFIER LENS 1: Focus on Welcome, Approvals & KPIs (Screenshot 4) */}
+          {/* CIRCULAR MAGNIFIER LENS 1: Focus on KPIs, Segmented Bar & Attendance Gauge (Screenshot 5) */}
           <div
-            className={`magnifier-lens lens-left ${lensHovered === 'left' ? 'is-active' : ''}`}
-            onMouseEnter={() => setLensHovered('left')}
-            onMouseLeave={() => setLensHovered(null)}
-            title="Focus Lens: Executive KPI Hub"
+            className={`magnifier-lens lens-left ${activeLens === 'left' ? 'is-active-lens' : ''}`}
+            onClick={onLaunchFullDashboard}
+            title="Tap to open interactive live dashboard"
           >
             <div className="lens-content-wrapper">
-              <div className="lens-inner-header">
-                <span className="lens-badge">Overview Focus</span>
-                <span className="lens-sub">Admin / Workspace</span>
-              </div>
-              <h3 className="lens-welcome-title">Welcome Back, Sameer</h3>
-              <p className="lens-approvals-line">
-                You have <span className="coral-bold">21</span> Pending Approvals & <span className="coral-bold">14</span> Leave Requests
-              </p>
-
+              {/* Stat Cards Snippet */}
               <div className="lens-kpis-mini-grid">
                 <div className="lens-stat-box">
                   <div className="lens-stat-icon-row">
-                    <div className="lens-icon-dot bg-teal" />
-                    <span>Attendance</span>
+                    <div className="lens-icon-circle bg-teal-soft"><Users size={12} color="#0D9488" /></div>
+                    <span>Payouts This Month</span>
                   </div>
                   <div className="lens-stat-num-row">
-                    <strong>120/154</strong>
-                    <span className="trend-badge-up"><ArrowUpRight size={13} /> +2.1%</span>
+                    <strong>112</strong>
+                    <span className="trend-badge-up"><ArrowUpRight size={12} /> +10.2%</span>
                   </div>
                   <span className="lens-link">View Details</span>
                 </div>
 
                 <div className="lens-stat-box">
                   <div className="lens-stat-icon-row">
-                    <div className="lens-icon-dot bg-navy" />
-                    <span>Compliance</span>
+                    <div className="lens-icon-circle bg-teal-soft"><Briefcase size={12} color="#0D9488" /></div>
+                    <span>Bench Employees</span>
                   </div>
                   <div className="lens-stat-num-row">
-                    <strong>78%</strong>
-                    <span className="trend-badge-down"><ArrowDownRight size={13} /> -2.1%</span>
+                    <strong>17</strong>
+                    <span className="trend-badge-up"><ArrowUpRight size={12} /> +04%</span>
                   </div>
                   <span className="lens-link">View All</span>
                 </div>
               </div>
 
-              {/* Gauge and legend snippet inside circle */}
-              <div className="lens-gauge-snippet">
-                <div className="lens-gauge-visual">
-                  <svg viewBox="0 0 120 70" className="lens-gauge-svg">
-                    <path d="M 10 60 A 50 50 0 0 1 110 60" fill="none" stroke="#E2E8F0" strokeWidth="14" strokeLinecap="round" />
-                    <path d="M 10 60 A 50 50 0 0 1 76 14" fill="none" stroke="#10B981" strokeWidth="14" strokeLinecap="round" />
-                    <path d="M 79 16 A 50 50 0 0 1 98 34" fill="none" stroke="#F59E0B" strokeWidth="14" strokeLinecap="round" />
-                    <path d="M 101 38 A 50 50 0 0 1 110 60" fill="none" stroke="#EF4444" strokeWidth="14" strokeLinecap="round" />
-                  </svg>
-                  <span className="lens-gauge-center">120</span>
+              {/* Segmented Bar as shown in Screenshot 5 */}
+              <div className="lens-seg-bar-wrap">
+                <div className="lens-seg-bar">
+                  <span style={{ width: '48%', background: '#10B981' }} />
+                  <span style={{ width: '24%', background: '#0D9488' }} />
+                  <span style={{ width: '14%', background: '#EF4444' }} />
+                  <span style={{ width: '14%', background: '#F59E0B' }} />
                 </div>
-                <div className="lens-gauge-pills">
-                  <span className="pill-metric"><i style={{ background: '#10B981' }} /> Active <b>112</b></span>
-                  <span className="pill-metric"><i style={{ background: '#0D9488' }} /> Remote <b>21</b></span>
-                  <span className="pill-metric"><i style={{ background: '#F59E0B' }} /> Leave <b>12</b></span>
+                <div className="lens-seg-legend">
+                  <span><i style={{ background: '#10B981' }} /> Active <b>112</b></span>
+                  <span><i style={{ background: '#0D9488' }} /> Remote <b>21</b></span>
+                  <span><i style={{ background: '#EF4444' }} /> Leave <b>12</b></span>
+                  <span><i style={{ background: '#F59E0B' }} /> Bench <b>04</b></span>
                 </div>
+              </div>
+
+              {/* Lower Section: Gauge & Department Bars */}
+              <div className="lens-lower-grid">
+                <div className="lens-gauge-box">
+                  <div className="lens-gauge-hdr">
+                    <span>Attendance Overview</span>
+                  </div>
+                  <div className="lens-gauge-art">
+                    <svg viewBox="0 0 110 60" className="lens-mini-gauge-svg">
+                      <path d="M 10 52 A 44 44 0 0 1 100 52" fill="none" stroke="#E2E8F0" strokeWidth="13" strokeLinecap="round" />
+                      <path d="M 10 52 A 44 44 0 0 1 70 12" fill="none" stroke="#10B981" strokeWidth="13" strokeLinecap="round" />
+                      <path d="M 73 14 A 44 44 0 0 1 90 28" fill="none" stroke="#F59E0B" strokeWidth="13" strokeLinecap="round" />
+                      <path d="M 92 31 A 44 44 0 0 1 100 52" fill="none" stroke="#EF4444" strokeWidth="13" strokeLinecap="round" />
+                    </svg>
+                    <div className="lens-gauge-center-num">
+                      <strong>120</strong>
+                      <small>Present</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lens-dept-box">
+                  <div className="lens-dept-hdr">
+                    <span>Employees by Dept</span>
+                  </div>
+                  <div className="lens-dept-bars">
+                    <div className="dept-row"><span>Legal</span><div className="bar"><div style={{ width: '88%', background: '#0D9488' }} /></div></div>
+                    <div className="dept-row"><span>Intelligence</span><div className="bar"><div style={{ width: '76%', background: '#10B981' }} /></div></div>
+                    <div className="dept-row"><span>Management</span><div className="bar"><div style={{ width: '62%', background: '#1E293B' }} /></div></div>
+                    <div className="dept-row"><span>HR</span><div className="bar"><div style={{ width: '45%', background: '#EF4444' }} /></div></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tap to open tag on mobile */}
+              <div className="lens-tap-open-tag">
+                <span>Tap to open live dashboard</span>
+                <ChevronRight size={13} />
               </div>
             </div>
           </div>
 
-          {/* CIRCULAR MAGNIFIER LENS 2: Focus on Actions & Clock-In Stream (Screenshot 4 & 5) */}
+          {/* CIRCULAR MAGNIFIER LENS 2: Focus on Actions & Clock-In Stream (Screenshots 4 & 5) */}
           <div
-            className={`magnifier-lens lens-right ${lensHovered === 'right' ? 'is-active' : ''}`}
-            onMouseEnter={() => setLensHovered('right')}
-            onMouseLeave={() => setLensHovered(null)}
-            title="Focus Lens: Live Operations & Attendance"
+            className={`magnifier-lens lens-right ${activeLens === 'right' ? 'is-active-lens' : ''}`}
+            onClick={onLaunchFullDashboard}
+            title="Tap to open interactive live dashboard"
           >
             <div className="lens-content-wrapper">
               <div className="lens-action-toolbar">
@@ -346,6 +402,12 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                   <div className="mini-bar-row"><span>Sales</span><div className="bar"><div style={{ width: '91%', background: '#EF4444' }} /></div></div>
                 </div>
               </div>
+
+              {/* Tap to open tag on mobile */}
+              <div className="lens-tap-open-tag">
+                <span>Tap to open live dashboard</span>
+                <ChevronRight size={13} />
+              </div>
             </div>
           </div>
 
@@ -360,28 +422,30 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
         </div>
 
         {/* Operating Layer Subtitle & Tabs matching Screenshot 5 */}
-        <div className="operating-layer-footer">
-          <h2 className="operating-layer-title">
+        <div className="operating-layer-row">
+          <p className="operating-layer-label">
             One intelligent operating layer for every team
-          </h2>
+          </p>
 
-          <div className="operating-tabs-bar">
+          <div className="operating-layer-tabs">
             {DEPARTMENT_TABS.map((tab) => (
               <button
                 key={tab.id}
-                className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+                className={`operating-tab-link ${activeTab === tab.id ? 'active' : ''}`}
                 onClick={() => setActiveTab(tab.id)}
               >
                 {tab.label}
               </button>
             ))}
           </div>
+        </div>
 
-          <p className="tab-explanation-sub">
-            {activeTabData.description}
-          </p>
+        {/* Tab Description subtext */}
+        <div className="operating-layer-desc">
+          <span>{activeTabData.description}</span>
         </div>
       </div>
     </section>
   );
 }
+

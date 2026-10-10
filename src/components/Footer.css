@@ -8,7 +8,7 @@
 .footer-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 48px;
 }
 
 /* Callout Banner */
@@ -28,7 +28,7 @@
 .footer-badge {
   font-size: 11px;
   font-weight: 800;
-  color: #EA580C;
+  color: #E85739;
   letter-spacing: 0.9px;
   display: block;
   margin-bottom: 12px;
@@ -63,19 +63,19 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #EA580C;
+  background: #E85739;
   color: #FFFFFF;
   padding: 14px 28px;
   border-radius: var(--radius-full);
   font-size: 15px;
   font-weight: 700;
-  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.35);
+  box-shadow: 0 8px 20px rgba(232, 87, 57, 0.35);
   transition: all 0.2s;
   cursor: pointer;
 }
 
 .footer-cta-btn:hover {
-  background: #D94826;
+  background: #D74628;
   transform: translateY(-2px);
 }
 
@@ -150,7 +150,7 @@
 
 .footer-col a:hover,
 .footer-col button:hover {
-  color: #EA580C;
+  color: #E85739;
 }
 
 /* Bottom Bar */

@@ -143,7 +143,7 @@ export default function AdminDashboard({ onBackToLanding }) {
             <span>Landing Page</span>
           </button>
           <div className="dash-brand-divider"></div>
-          <AaraliaLogo variant="light" size="default" />
+          <AaraliaLogo variant="dark" size="default" />
         </div>
 
         {/* Global Search Bar */}
