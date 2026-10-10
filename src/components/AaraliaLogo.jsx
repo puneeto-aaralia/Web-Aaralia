@@ -27,7 +27,7 @@ export default function AaraliaLogo({ variant = 'light', size = 'default', showP
         }}
       />
 
-      {/* Brand Text 'ralia' following the 'a' mark */}
+      {/* Brand Text 'aaralia' with aa after icon */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <span
           style={{
@@ -37,10 +37,9 @@ export default function AaraliaLogo({ variant = 'light', size = 'default', showP
             letterSpacing: '-0.7px',
             lineHeight: 1,
             fontFamily: 'var(--font-family)',
-            marginLeft: '-2px'
           }}
         >
-          ralia
+          aaralia
         </span>
 
         {showPoweredBy && (
