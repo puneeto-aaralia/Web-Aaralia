@@ -24,8 +24,8 @@ const DEPARTMENT_TABS = [
   { id: 'people', label: 'People', description: 'Real-time headcounts, retention risk signals, and auto-synced org structures.' },
   { id: 'revenue', label: 'Revenue', description: 'Unify sales velocity, CRM pipeline health, and employee quota achievements.' },
   { id: 'finance', label: 'Finance', description: 'Automated payroll distribution, tax filing compliance, and contractor payouts.' },
-  { id: 'operations', label: 'Operations', description: 'Biometric time clocks, leave requests, shift schedules, and operational workflows.' },
-  { id: 'intelligence', label: 'Intelligence', description: 'Cross-functional predictive recommendations powered by Aaralia AI context engine.' }
+  { id: 'learning', label: 'Learning', description: 'Close skill gaps, track certifications, and integrate growth into daily workflows.' },
+  { id: 'operations', label: 'Operations', description: 'Biometric time clocks, leave requests, shift schedules, and operational workflows.' }
 ];
 
 export default function DashboardShowcase({ onLaunchFullDashboard }) {
@@ -36,6 +36,9 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
 
   return (
     <section className="showcase-section" id="dashboard-preview">
+      {/* Soft Decorative Blush Glow matching Screenshot 5 */}
+      <div className="showcase-blush-blob" aria-hidden="true" />
+
       <div className="showcase-container">
         {/* Mobile Spotlight Focus Switcher */}
         <div className="showcase-mobile-lens-tabs">
@@ -44,14 +47,14 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
             className={`mobile-lens-btn ${activeLens === 'left' ? 'active' : ''}`}
             onClick={() => setActiveLens('left')}
           >
-            <span>1. Overview & KPIs</span>
+            <span>1. Sameer Raj Profile</span>
           </button>
           <button
             type="button"
             className={`mobile-lens-btn ${activeLens === 'right' ? 'active' : ''}`}
             onClick={() => setActiveLens('right')}
           >
-            <span>2. Live Clock-In</span>
+            <span>2. Actions & Clock-In</span>
           </button>
           <button
             type="button"
@@ -63,7 +66,7 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
           </button>
         </div>
 
-        {/* Mockup Frame Wrapper with Responsive Magnifying Lens Overlays */}
+        {/* Mockup Frame Wrapper with Responsive Magnifying Lens Overlays matching Screenshot 5 */}
         <div className="showcase-mockup-wrapper">
           {/* Base Dashboard Canvas */}
           <div className="mockup-canvas-base" onClick={onLaunchFullDashboard} role="button" tabIndex={0} title="Click to open interactive dashboard">
@@ -168,10 +171,10 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                   <div className="mockup-stat-card">
                     <div className="stat-head">
                       <div className="stat-icon-sq bg-blue-soft"><Users size={14} color="#2563EB" /></div>
-                      <span className="stat-label">Payouts This Month</span>
+                      <span className="stat-label">Total Employee</span>
                     </div>
                     <div className="stat-value-line">
-                      <span className="stat-num">112</span>
+                      <span className="stat-num">580</span>
                       <span className="stat-trend trend-green"><ArrowUpRight size={12} /> +10.2%</span>
                     </div>
                     <span className="stat-foot">View Details</span>
@@ -180,10 +183,10 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                   <div className="mockup-stat-card">
                     <div className="stat-head">
                       <div className="stat-icon-sq bg-dark-soft"><Briefcase size={14} color="#475569" /></div>
-                      <span className="stat-label">Bench Employees</span>
+                      <span className="stat-label">Total Client</span>
                     </div>
                     <div className="stat-value-line">
-                      <span className="stat-num">17</span>
+                      <span className="stat-num">512</span>
                       <span className="stat-trend trend-green"><ArrowUpRight size={12} /> +04%</span>
                     </div>
                     <span className="stat-foot">View All</span>
@@ -209,12 +212,6 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                         <span className="gauge-sub">Present</span>
                       </div>
                     </div>
-                    <div className="gauge-legend-mini">
-                      <span><b style={{ color: '#10B981' }}>●</b> Active: 112</span>
-                      <span><b style={{ color: '#0D9488' }}>●</b> Remote: 21</span>
-                      <span><b style={{ color: '#F59E0B' }}>●</b> Leave: 12</span>
-                      <span><b style={{ color: '#EF4444' }}>●</b> Bench: 04</span>
-                    </div>
                   </div>
 
                   <div className="mockup-dept-panel">
@@ -225,8 +222,7 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                       <div className="dept-bar-item"><span>Legal</span><div className="track"><div className="fill" style={{ width: '88%', background: '#0D9488' }} /></div></div>
                       <div className="dept-bar-item"><span>Intelligence</span><div className="track"><div className="fill" style={{ width: '76%', background: '#10B981' }} /></div></div>
                       <div className="dept-bar-item"><span>Management</span><div className="track"><div className="fill" style={{ width: '62%', background: '#3B82F6' }} /></div></div>
-                      <div className="dept-bar-item"><span>HR</span><div className="track"><div className="fill" style={{ width: '45%', background: '#F59E0B' }} /></div></div>
-                      <div className="dept-bar-item"><span>Sales</span><div className="track"><div className="fill" style={{ width: '91%', background: '#EF4444' }} /></div></div>
+                      <div className="dept-bar-item"><span>HR</span><div className="track"><div className="fill" style={{ width: '45%', background: '#EF4444' }} /></div></div>
                     </div>
                   </div>
 
@@ -242,15 +238,15 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                           <strong>Doglas Martini</strong>
                           <small>Project Manager</small>
                         </div>
-                        <span className="time-badge">09:02 AM</span>
+                        <span className="time-badge">09:36</span>
                       </div>
                       <div className="clock-emp-row">
                         <div className="avatar-mini">VL</div>
                         <div>
                           <strong>Villalobos</strong>
-                          <small>Lead Architect</small>
+                          <small>Developer</small>
                         </div>
-                        <span className="time-badge">09:15 AM</span>
+                        <span className="time-badge">09:15</span>
                       </div>
                     </div>
                   </div>
@@ -259,87 +255,87 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
             </div>
           </div>
 
-          {/* CIRCULAR MAGNIFIER LENS 1: Focus on KPIs, Segmented Bar & Attendance Gauge (Screenshot 5) */}
+          {/* CIRCULAR MAGNIFIER LENS 1: Focus on Sameer Raj Profile & Details (Screenshot 5) */}
           <div
             className={`magnifier-lens lens-left ${activeLens === 'left' ? 'is-active-lens' : ''}`}
             onClick={onLaunchFullDashboard}
             title="Tap to open interactive live dashboard"
           >
-            <div className="lens-content-wrapper">
-              {/* Stat Cards Snippet */}
-              <div className="lens-kpis-mini-grid">
-                <div className="lens-stat-box">
-                  <div className="lens-stat-icon-row">
-                    <div className="lens-icon-circle bg-teal-soft"><Users size={12} color="#0D9488" /></div>
-                    <span>Payouts This Month</span>
-                  </div>
-                  <div className="lens-stat-num-row">
-                    <strong>112</strong>
-                    <span className="trend-badge-up"><ArrowUpRight size={12} /> +10.2%</span>
-                  </div>
-                  <span className="lens-link">View Details</span>
+            <div className="lens-content-wrapper lens-profile-wrapper">
+              {/* Profile Header */}
+              <div className="lens-profile-head">
+                <div className="lens-avatar-ring">
+                  <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                    alt="Sameer Raj"
+                    className="lens-avatar-img"
+                  />
+                  <span className="lens-status-dot-online" />
                 </div>
-
-                <div className="lens-stat-box">
-                  <div className="lens-stat-icon-row">
-                    <div className="lens-icon-circle bg-teal-soft"><Briefcase size={12} color="#0D9488" /></div>
-                    <span>Bench Employees</span>
+                <div className="lens-profile-identity">
+                  <div className="lens-name-row">
+                    <h3 className="lens-profile-name">Sameer Raj</h3>
+                    <span className="lens-verified-badge" title="Verified Employee">✔</span>
                   </div>
-                  <div className="lens-stat-num-row">
-                    <strong>17</strong>
-                    <span className="trend-badge-up"><ArrowUpRight size={12} /> +04%</span>
+                  <div className="lens-profile-tags">
+                    <span className="lens-tag-pill"><i className="dot-green" /> Lead UI UX Designer</span>
+                    <span className="lens-tag-pill">10+ years of Experience</span>
                   </div>
-                  <span className="lens-link">View All</span>
                 </div>
               </div>
 
-              {/* Segmented Bar as shown in Screenshot 5 */}
-              <div className="lens-seg-bar-wrap">
-                <div className="lens-seg-bar">
-                  <span style={{ width: '48%', background: '#10B981' }} />
-                  <span style={{ width: '24%', background: '#0D9488' }} />
-                  <span style={{ width: '14%', background: '#EF4444' }} />
-                  <span style={{ width: '14%', background: '#F59E0B' }} />
+              {/* Grid of Key Employee Specs */}
+              <div className="lens-profile-meta-grid">
+                <div className="meta-row">
+                  <div className="meta-label-group">
+                    <Users size={12} color="#64748B" />
+                    <span>Employee ID</span>
+                  </div>
+                  <strong>EMP-0001</strong>
                 </div>
-                <div className="lens-seg-legend">
-                  <span><i style={{ background: '#10B981' }} /> Active <b>112</b></span>
-                  <span><i style={{ background: '#0D9488' }} /> Remote <b>21</b></span>
-                  <span><i style={{ background: '#EF4444' }} /> Leave <b>12</b></span>
-                  <span><i style={{ background: '#F59E0B' }} /> Bench <b>04</b></span>
+
+                <div className="meta-row">
+                  <div className="meta-label-group">
+                    <Briefcase size={12} color="#64748B" />
+                    <span>Team</span>
+                  </div>
+                  <strong>Design</strong>
+                </div>
+
+                <div className="meta-row">
+                  <div className="meta-label-group">
+                    <Calendar size={12} color="#64748B" />
+                    <span>Date Of Join</span>
+                  </div>
+                  <strong>1st Jan 2026</strong>
+                </div>
+
+                <div className="meta-row">
+                  <div className="meta-label-group">
+                    <Users size={12} color="#64748B" />
+                    <span>Reporting Manager</span>
+                  </div>
+                  <div className="manager-chip">
+                    <div className="mgr-avatar">DM</div>
+                    <strong>Doglas Martini</strong>
+                  </div>
+                </div>
+
+                <div className="meta-row">
+                  <div className="meta-label-group">
+                    <Layers size={12} color="#64748B" />
+                    <span>Device</span>
+                  </div>
+                  <strong>DELL-XPS-15</strong>
                 </div>
               </div>
 
-              {/* Lower Section: Gauge & Department Bars */}
-              <div className="lens-lower-grid">
-                <div className="lens-gauge-box">
-                  <div className="lens-gauge-hdr">
-                    <span>Attendance Overview</span>
-                  </div>
-                  <div className="lens-gauge-art">
-                    <svg viewBox="0 0 110 60" className="lens-mini-gauge-svg">
-                      <path d="M 10 52 A 44 44 0 0 1 100 52" fill="none" stroke="#E2E8F0" strokeWidth="13" strokeLinecap="round" />
-                      <path d="M 10 52 A 44 44 0 0 1 70 12" fill="none" stroke="#10B981" strokeWidth="13" strokeLinecap="round" />
-                      <path d="M 73 14 A 44 44 0 0 1 90 28" fill="none" stroke="#F59E0B" strokeWidth="13" strokeLinecap="round" />
-                      <path d="M 92 31 A 44 44 0 0 1 100 52" fill="none" stroke="#EF4444" strokeWidth="13" strokeLinecap="round" />
-                    </svg>
-                    <div className="lens-gauge-center-num">
-                      <strong>120</strong>
-                      <small>Present</small>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="lens-dept-box">
-                  <div className="lens-dept-hdr">
-                    <span>Employees by Dept</span>
-                  </div>
-                  <div className="lens-dept-bars">
-                    <div className="dept-row"><span>Legal</span><div className="bar"><div style={{ width: '88%', background: '#0D9488' }} /></div></div>
-                    <div className="dept-row"><span>Intelligence</span><div className="bar"><div style={{ width: '76%', background: '#10B981' }} /></div></div>
-                    <div className="dept-row"><span>Management</span><div className="bar"><div style={{ width: '62%', background: '#1E293B' }} /></div></div>
-                    <div className="dept-row"><span>HR</span><div className="bar"><div style={{ width: '45%', background: '#EF4444' }} /></div></div>
-                  </div>
-                </div>
+              {/* Form tabs snippet at bottom */}
+              <div className="lens-sub-tabs-strip">
+                <span className="sub-tab active">Personal Information</span>
+                <span className="sub-tab">Bank Details</span>
+                <span className="sub-tab">Family Information</span>
+                <span className="sub-tab">Experience</span>
               </div>
 
               {/* Tap to open tag on mobile */}
@@ -350,22 +346,29 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
             </div>
           </div>
 
-          {/* CIRCULAR MAGNIFIER LENS 2: Focus on Actions & Clock-In Stream (Screenshots 4 & 5) */}
+          {/* CIRCULAR MAGNIFIER LENS 2: Focus on Actions & Clock-In Stream (Screenshot 5) */}
           <div
             className={`magnifier-lens lens-right ${activeLens === 'right' ? 'is-active-lens' : ''}`}
             onClick={onLaunchFullDashboard}
             title="Tap to open interactive live dashboard"
           >
-            <div className="lens-content-wrapper">
+            <div className="lens-content-wrapper lens-actions-wrapper">
               <div className="lens-action-toolbar">
                 <button className="lens-btn-sec"><Download size={13} /> Export <ChevronDown size={11} /></button>
+                <div className="lens-date-pill">2025 - 2026</div>
+              </div>
+
+              <div className="lens-action-primary-btns">
                 <button className="lens-btn-dark"><Calendar size={13} /> Add Schedule</button>
-                <button className="lens-btn-primary"><Plus size={13} /> Add</button>
+                <button className="lens-btn-orange"><Plus size={13} /> Add Employee</button>
               </div>
 
               <div className="lens-clock-header">
-                <h4>Clock-In/Out</h4>
-                <span className="lens-today-tag"><Calendar size={12} /> Today</span>
+                <div className="clock-hdr-left">
+                  <h4>Clock-In/Out</h4>
+                  <span className="lens-today-tag"><Calendar size={11} /> Today</span>
+                </div>
+                <span className="lens-view-all">View All</span>
               </div>
 
               <div className="lens-clock-list">
@@ -376,8 +379,8 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                     <span>Project Manager</span>
                   </div>
                   <div className="lens-time-tag">
-                    <small>In</small>
-                    <b>09:02 AM</b>
+                    <Clock size={11} />
+                    <b>09:36</b>
                   </div>
                 </div>
 
@@ -385,21 +388,23 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
                   <div className="lens-avatar">VL</div>
                   <div className="lens-emp-meta">
                     <strong>Villalobos</strong>
-                    <span>Lead Architect</span>
+                    <span>Developer</span>
                   </div>
                   <div className="lens-time-tag">
-                    <small>In</small>
-                    <b>09:15 AM</b>
+                    <Clock size={11} />
+                    <b>09:15</b>
                   </div>
                 </div>
               </div>
 
               {/* Department breakdown snippet */}
               <div className="lens-dept-snippet">
-                <span className="lens-snippet-title">Department Distribution</span>
+                <span className="lens-snippet-title">Employees by Department</span>
                 <div className="lens-mini-bars">
+                  <div className="mini-bar-row"><span>Legal</span><div className="bar"><div style={{ width: '88%', background: '#0D9488' }} /></div></div>
                   <div className="mini-bar-row"><span>Intelligence</span><div className="bar"><div style={{ width: '76%', background: '#10B981' }} /></div></div>
-                  <div className="mini-bar-row"><span>Sales</span><div className="bar"><div style={{ width: '91%', background: '#EF4444' }} /></div></div>
+                  <div className="mini-bar-row"><span>Management</span><div className="bar"><div style={{ width: '62%', background: '#1E293B' }} /></div></div>
+                  <div className="mini-bar-row"><span>HR</span><div className="bar"><div style={{ width: '45%', background: '#EF4444' }} /></div></div>
                 </div>
               </div>
 
@@ -424,7 +429,8 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
         {/* Operating Layer Subtitle & Tabs matching Screenshot 5 */}
         <div className="operating-layer-row">
           <p className="operating-layer-label">
-            One intelligent operating layer for every team
+            One intelligent operating layer for every team<br />
+            that keeps your business moving.
           </p>
 
           <div className="operating-layer-tabs">

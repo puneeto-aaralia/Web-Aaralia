@@ -16,6 +16,8 @@
 
 /* Meet Aaralia AI Pill matching Images 2 & 3 */
 .ai-badge-wrapper {
+  display: flex;
+  justify-content: center;
   margin-bottom: 22px;
 }
 
@@ -41,42 +43,47 @@
   text-transform: uppercase;
 }
 
-/* Section Headline */
+/* Section Headline - Center Aligned */
 .ai-headline {
   font-size: clamp(38px, 4.5vw, 54px);
   font-weight: 850;
   line-height: 1.14;
   letter-spacing: -1.6px;
   color: #FFFFFF;
-  margin: 0 0 16px 0;
+  margin: 0 auto 16px auto;
   max-width: 900px;
+  text-align: center;
 }
 
 .highlight-coral {
   color: #E85739;
 }
 
-/* Subtitle */
+/* Subtitle - Center Aligned */
 .ai-subtitle {
   font-size: 17.5px;
   line-height: 1.55;
   color: #8E9EAF;
   max-width: 780px;
-  margin: 0 0 52px 0;
+  margin: 0 auto 54px auto;
   font-weight: 450;
+  text-align: center;
 }
 
-/* 4 Feature Pillars 2x2 Grid matching Image 3 */
+/* 4 Feature Pillars 2x2 Grid - Center Aligned */
 .ai-pillars-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px 64px;
-  margin-bottom: 52px;
+  max-width: 860px;
+  margin: 0 auto 56px auto;
 }
 
 .pillar-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 6px;
 }
 
@@ -93,6 +100,7 @@
   color: #8292A5;
   line-height: 1.5;
   margin: 0;
+  max-width: 360px;
 }
 
 /* "Ask Aaralia" Terminal Card matching Images 3 & 4 */
@@ -105,7 +113,7 @@
   background: #0D2034;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 24px;
-  padding: 30px 32px;
+  padding: 34px 36px;
   box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.5);
 }
 
@@ -114,7 +122,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 22px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 16px;
 }
 
 .terminal-brand-group {
@@ -152,30 +162,31 @@
   color: #7B8B9E;
 }
 
-/* User Prompt Bubble matching Images 3 & 4 */
+/* User Prompt Bubble with Clear Whitespace Hierarchy */
 .terminal-user-bubble-row {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 22px;
+  margin-bottom: 32px;
 }
 
 .terminal-user-bubble {
   background: #142E4A;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  padding: 12px 20px;
+  padding: 13px 22px;
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 500;
-  max-width: 520px;
+  max-width: 480px;
+  width: fit-content;
 }
 
-/* Response Lead */
+/* Response Lead on Bot Side */
 .terminal-response-lead {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .response-sparkle-mark {
@@ -195,12 +206,12 @@
   font-weight: 500;
 }
 
-/* 3 Priority Rows matching Images 3 & 4 */
+/* 3 Priority Rows matching Images 3 & 4 with Whitespace */
 .terminal-priority-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 9px;
+  margin-bottom: 26px;
 }
 
 .priority-row-item {

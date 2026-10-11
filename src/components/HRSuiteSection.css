@@ -52,12 +52,123 @@
   max-width: 520px;
 }
 
-@media (max-width: 900px) {
+/* 3x3 Grid Card Container matching Screenshot 4 */
+.hr-suite-grid-card {
+  margin-top: 56px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #DFDDD6;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 0 4px 20px -2px rgba(12, 21, 35, 0.03);
+}
+
+.hr-grid-cell {
+  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+  border-right: 1px solid #ECEAE4;
+  border-bottom: 1px solid #ECEAE4;
+  background: #FFFFFF;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.hr-grid-cell:nth-child(3n) {
+  border-right: none;
+}
+
+.hr-grid-cell:nth-child(n+7) {
+  border-bottom: none;
+}
+
+.hr-grid-cell:hover {
+  background: #FAFAF8;
+}
+
+.cell-num {
+  font-size: 13px;
+  font-weight: 750;
+  color: #E85739;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.cell-content {
+  flex-grow: 1;
+}
+
+.cell-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0B1320;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+}
+
+.cell-desc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #55657E;
+  margin: 0 0 32px 0;
+  font-weight: 450;
+}
+
+.cell-action {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.cell-arrow {
+  color: #0B1320;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hr-grid-cell:hover .cell-arrow {
+  transform: translateX(6px);
+  color: #E85739;
+}
+
+@media (max-width: 960px) {
   .hr-suite-container {
     padding: 0 24px;
   }
   .hr-suite-header-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+  .hr-suite-grid-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hr-grid-cell:nth-child(3n) {
+    border-right: 1px solid #ECEAE4;
+  }
+  .hr-grid-cell:nth-child(2n) {
+    border-right: none;
+  }
+  .hr-grid-cell:nth-child(n+7) {
+    border-bottom: 1px solid #ECEAE4;
+  }
+  .hr-grid-cell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hr-suite-grid-card {
+    grid-template-columns: 1fr;
+  }
+  .hr-grid-cell {
+    border-right: none !important;
+    border-bottom: 1px solid #ECEAE4 !important;
+    padding: 28px 22px;
+  }
+  .hr-grid-cell:last-child {
+    border-bottom: none !important;
   }
 }

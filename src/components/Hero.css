@@ -8,11 +8,11 @@
 /* Background Peach Decorative Circle matching Figma Screenshot */
 .hero-peach-circle {
   position: absolute;
-  top: 50%;
-  right: 2%;
+  top: 48%;
+  right: 4%;
   transform: translateY(-50%);
-  width: clamp(480px, 46vw, 680px);
-  height: clamp(480px, 46vw, 680px);
+  width: clamp(440px, 42vw, 580px);
+  height: clamp(440px, 42vw, 580px);
   border-radius: 50%;
   background: #FEEAE3;
   pointer-events: none;
