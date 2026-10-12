@@ -11,8 +11,8 @@
   top: 35%;
   right: 14%;
   transform: translateY(-50%);
-  width: clamp(396px, 27vw, 458px);
-  height: clamp(278px, 30vw, 477px);
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
   background: #FEEAE3;
   pointer-events: none;
@@ -97,7 +97,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 26px;
+  margin-bottom: 36px;
+  margin-top: 36px;
 }
 
 .hero-primary-cta {

@@ -117,10 +117,10 @@ export default function FeatureCards({ onExploreFeature }) {
               <div
                 key={card.id}
                 className="feature-card"
-                onClick={() => handleCardClick(card)}
+                // onClick={() => handleCardClick(card)}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(card); }}
+                // onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(card); }}
               >
                 {/* Icon Box */}
                 <div className={`card-icon-wrapper bg-${card.theme}`}>

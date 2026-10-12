@@ -3,7 +3,7 @@
    ========================================================= */
 
 .ai-section {
-  background-color: #081624;
+  background-color: #0E2338;
   color: #ffffff;
   padding: 90px 0 100px 0;
   position: relative;
@@ -101,7 +101,7 @@
 
   color: #8e9eaf;
 
-  max-width: 1080px;
+  max-width: 1260px;
 
   margin: 20px 0 54px 0;
 
@@ -409,6 +409,7 @@
   flex-direction: column;
 
   gap: 9px;
+  width:430px;
 
   margin-bottom: 26px;
 }

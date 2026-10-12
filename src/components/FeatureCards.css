@@ -13,8 +13,8 @@
 
 .features-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
+  margin: 0 36px;
+  /* padding: 0 32px; */
 }
 
 /* Header Section */
@@ -60,7 +60,7 @@
   color: #64748b;
   margin-top: 12px;
   font-weight: 400;
-  max-width: 440px;
+  max-width: 540px;
 }
 
 /* 2x2 Grid Layout */

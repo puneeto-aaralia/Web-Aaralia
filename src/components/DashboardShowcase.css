@@ -20,6 +20,7 @@
 }
 
 .showcase-svg-image {
+  /* padding: 80px; */
   display: block;
   width: min(1385px, 100%);
   height: auto;
@@ -152,6 +153,7 @@
     min-width: 850px;
     max-width: none;
     transform: translateX(-190px);
+    margin-left: 125px;
   }
 
   .operating-layer-row {

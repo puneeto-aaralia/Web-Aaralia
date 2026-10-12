@@ -112,7 +112,7 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
             </span>
 
             <div className="footer-contact-emails">
-              <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a>
+              {/* <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a> */}
               <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a>
             </div>
           </div>

@@ -46,8 +46,8 @@ export default function Navbar({ activeView, setActiveView, onOpenDemo }) {
           {/* Hamburger Menu Icon Button matching Image 2 */}
           <button
             className="navbar-menu-btn"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            // onClick={() => setMenuOpen(!menuOpen)}
+            // aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>

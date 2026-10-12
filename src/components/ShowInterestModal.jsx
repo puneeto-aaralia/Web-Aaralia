@@ -113,10 +113,10 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                     value={formData.teamSize}
                     onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
                   >
-                    <option value="1-50">1 - 5 employees</option>
-                    <option value="50-200">10 - 50 employees</option>
-                    <option value="200-1000">50 - 1,00 employees</option>
-                    <option value="1000+">1,00+ enterprise</option>
+                    <option value="1-9">1 -  employees</option>
+                    <option value="10-49">10 - 49 employees</option>
+                    <option value="50-99">50 - 99 employees</option>
+                    {/* <option value="1000+">1,00+ enterprise</option> */}
                   </select>
                 </div>
               </div>

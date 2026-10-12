@@ -63,7 +63,7 @@ export default function SupportSystemSection() {
             <span>HUMAN BY DESIGN</span>
           </div>
 
-          <h2 className="support-main-title">
+          <h2 class="hr-suite-title">
             Technology should feel less like a system<br />
             —and more like support.
           </h2>

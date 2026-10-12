@@ -13,7 +13,7 @@
 /* Section Header matching Figma Reference */
 .support-header-block {
   text-align: left;
-  max-width: 860px;
+  /* max-width: px; */
   /* margin: 0 auto 48px auto; */
 }
 
@@ -39,14 +39,14 @@
   line-height: 1.6;
   color: #55657E;
   margin: 0 auto;
-  max-width: 820px;
+  max-width: 1260px;
   font-weight: 450;
 }
 
 /* Soft Peach Mockup Wrapper enclosing Two Clean White Cards */
 .support-mockup-wrapper {
   max-width: 1040px;
-  margin: 0 auto;
+  margin: 30px auto;
   background: #FEEAE3;
   border-radius: 36px;
   padding: 34px 34px 44px 34px;
