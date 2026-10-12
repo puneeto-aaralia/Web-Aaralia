@@ -12,7 +12,7 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
     <footer className="footer-master-root">
       {/* 1. Dark CTA Banner matching Image 1 */}
       <div className="footer-cta-container">
-      <div className="dark-cta-card">
+        <div className="dark-cta-card">
           {/* Subtle concentric ripple background circles matching Image 1 */}
           <div className="cta-concentric-rings" aria-hidden="true">
             <div className="ring ring-1" />
@@ -40,7 +40,7 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
                 className="dark-cta-talk-btn"
                 onClick={onOpenDemoModal}
               >
-                Talk to our team
+                Show Your Interest
               </button>
             </div>
           </div>

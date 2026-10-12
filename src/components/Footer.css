@@ -145,7 +145,7 @@
   font-weight: 450;
 }
 
-/* Talk to our team Button */
+/* Show Your Interest Button */
 .dark-cta-btn-wrapper {
   display: flex;
   justify-content: center;
@@ -333,23 +333,29 @@
   .footer-cta-container {
     padding: 0 24px;
   }
+
   .white-footer-container {
     padding: 0 24px;
   }
+
   .dark-cta-card {
     padding: 56px 24px;
   }
+
   .footer-main-row {
     flex-direction: column;
     gap: 36px;
   }
+
   .footer-nav-columns-grid {
     gap: 48px;
   }
+
   .floating-yellow-attendance-badge {
     right: 28px;
     top: -24px;
   }
+
   .hide-mobile {
     display: none;
   }
@@ -359,34 +365,42 @@
   .footer-cta-container {
     padding: 0 16px;
   }
+
   .white-footer-container {
     padding: 0 16px;
   }
+
   .dark-cta-card {
     padding: 44px 18px;
     border-radius: 20px;
   }
+
   .dark-cta-title {
     font-size: 28px;
     letter-spacing: -0.8px;
   }
+
   .dark-cta-subtitle {
     font-size: 14.5px;
     margin-bottom: 28px;
   }
+
   .footer-right-nav-col {
     width: 100%;
     justify-content: space-between;
   }
+
   .footer-nav-columns-grid {
     gap: 28px;
     flex-wrap: wrap;
   }
+
   .footer-bottom-info-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
+
   .floating-yellow-attendance-badge {
     position: relative;
     top: 0;
