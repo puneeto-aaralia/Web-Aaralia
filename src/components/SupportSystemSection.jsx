@@ -1,64 +1,66 @@
-import React, { useState } from 'react';
-import { Clock, CheckCircle2, Search, Download, ChevronDown, Calendar, ArrowUpRight } from 'lucide-react';
+import React from 'react';
+import { Search, Calendar, ChevronDown, Filter } from 'lucide-react';
 import './SupportSystemSection.css';
 
 const ATTENDANCE_RECORDS = [
   {
     id: 1,
-    name: 'Doglas Martini',
-    role: 'Project Manager',
-    avatar: 'DM',
-    checkIn: '09:02 AM',
+    date: '14/09/2026',
+    checkIn: '09:00 AM',
+    status: 'Present',
+    statusType: 'neutral',
     checkOut: '06:45 PM',
-    hours: '09:43 hrs',
-    status: 'On Time',
-    statusTheme: 'green'
+    breakTime: '30 Min',
+    late: '32 Min',
+    overtime: '20 Min',
+    productionHours: '09:15 hrs'
   },
   {
     id: 2,
-    name: 'Villalobos',
-    role: 'Lead Architect',
-    avatar: 'VL',
+    date: '13/09/2026',
     checkIn: '09:15 AM',
+    status: 'Present',
+    statusType: 'neutral',
     checkOut: '07:10 PM',
-    hours: '09:55 hrs',
-    status: 'On Time',
-    statusTheme: 'green'
+    breakTime: '45 Min',
+    late: '15 Min',
+    overtime: '40 Min',
+    productionHours: '09:55 hrs'
   },
   {
     id: 3,
-    name: 'Sarah Jenkins',
-    role: 'Senior Engineer',
-    avatar: 'SJ',
+    date: '12/09/2026',
     checkIn: '09:48 AM',
-    checkOut: '06:30 PM',
-    hours: '08:42 hrs',
     status: 'Late',
-    statusTheme: 'amber'
+    statusType: 'low',
+    checkOut: '06:30 PM',
+    breakTime: '30 Min',
+    late: '48 Min',
+    overtime: '15 Min',
+    productionHours: '08:42 hrs'
   },
   {
     id: 4,
-    name: 'Michael Chang',
-    role: 'Product Analyst',
-    avatar: 'MC',
+    date: '11/09/2026',
     checkIn: '08:55 AM',
+    status: 'Present',
+    statusType: 'neutral',
     checkOut: '07:30 PM',
-    hours: '10:35 hrs',
-    status: 'Overtime',
-    statusTheme: 'blue'
+    breakTime: '30 Min',
+    late: '00 Min',
+    overtime: '50 Min',
+    productionHours: '10:35 hrs'
   }
 ];
 
 export default function SupportSystemSection() {
-  const [filterActive, setFilterActive] = useState('All');
-
   return (
     <section className="support-system-section" id="support-section">
       <div className="support-container">
-        {/* Section Header matching Image 2 */}
+        {/* Section Header matching Figma Reference */}
         <div className="support-header-block">
           <div className="support-tag-pill">
-            <span>INTUITIVE OPERATIONS</span>
+            <span>HUMAN BY DESIGN</span>
           </div>
 
           <h2 className="support-main-title">
@@ -67,131 +69,156 @@ export default function SupportSystemSection() {
           </h2>
 
           <p className="support-main-desc">
-            Work shouldn't depend on heavy training or complex navigation. Aaralia adapts to how your people naturally work, so every interaction feels effortless.
+            That belief shapes every Aaralia experience: fewer obstacles, clearer choices, and more time for the work only people can do.
           </p>
         </div>
 
-        {/* Dashboard Mockup Card matching Image 2 bottom */}
+        {/* Soft Peach Container enclosing Two Clean White Cards */}
         <div className="support-mockup-wrapper">
-          <div className="support-dashboard-card">
-            {/* Top 4 KPI Metrics Bar */}
+          {/* Card 1: Top Metrics & Colorful Timeline Card */}
+          <div className="support-card-metrics">
+            {/* 4 KPI Metrics */}
             <div className="support-kpi-grid">
-              <div className="support-kpi-box">
-                <span className="kpi-label">Total Working Hours</span>
-                <div className="kpi-val-row">
-                  <span className="kpi-num">19:31h</span>
-                  <span className="kpi-badge badge-green"><ArrowUpRight size={12} /> +2.4%</span>
-                </div>
+              <div className="support-kpi-col">
+                <span className="kpi-label"><i className="kpi-dot dot-grey" /> Total Working hours</span>
+                <span className="kpi-val">12h 36m</span>
               </div>
-
-              <div className="support-kpi-box">
-                <span className="kpi-label">Productive Hours</span>
-                <div className="kpi-val-row">
-                  <span className="kpi-num">08:15h</span>
-                  <span className="kpi-sub-tag tag-teal">85% Active</span>
-                </div>
+              <div className="support-kpi-col">
+                <span className="kpi-label"><i className="kpi-dot dot-green" /> Productive Hours</span>
+                <span className="kpi-val">08h 36m</span>
               </div>
-
-              <div className="support-kpi-box">
-                <span className="kpi-label">Break Hours</span>
-                <div className="kpi-val-row">
-                  <span className="kpi-num">21.2h</span>
-                  <span className="kpi-sub-tag tag-amber">Policy Norm</span>
-                </div>
+              <div className="support-kpi-col">
+                <span className="kpi-label"><i className="kpi-dot dot-yellow" /> Break hours</span>
+                <span className="kpi-val">22m 15s</span>
               </div>
-
-              <div className="support-kpi-box">
-                <span className="kpi-label">Overtime Hours</span>
-                <div className="kpi-val-row">
-                  <span className="kpi-num">32.2h</span>
-                  <span className="kpi-sub-tag tag-blue">Logged</span>
-                </div>
+              <div className="support-kpi-col">
+                <span className="kpi-label"><i className="kpi-dot dot-blue" /> Overtime</span>
+                <span className="kpi-val">02h 15m</span>
               </div>
             </div>
 
-            {/* Horizontal Timeline Strip */}
-            <div className="support-timeline-strip">
-              <div className="timeline-bar">
-                <span className="seg-productive" style={{ width: '60%' }} title="Productive Hours: 60%" />
-                <span className="seg-break" style={{ width: '15%' }} title="Break Time: 15%" />
-                <span className="seg-overtime" style={{ width: '15%' }} title="Overtime: 15%" />
-                <span className="seg-idle" style={{ width: '10%' }} title="Buffer: 10%" />
+            {/* Segmented Timeline Bar matching Screenshot */}
+            <div className="support-timeline-wrapper">
+              <div className="support-timeline-segments">
+                <span className="t-seg seg-green" style={{ width: '6%' }} />
+                <span className="t-seg seg-yellow" style={{ width: '3.5%' }} />
+                <span className="t-seg seg-green" style={{ width: '14.5%' }} />
+                <span className="t-seg seg-yellow" style={{ width: '8.5%' }} />
+                <span className="t-seg seg-green" style={{ width: '16%' }} />
+                <span className="t-seg seg-yellow" style={{ width: '2.5%' }} />
+                <span className="t-seg seg-blue" style={{ width: '2.5%' }} />
+                <span className="t-seg seg-cyan" style={{ width: '2.5%' }} />
+                <span className="t-seg seg-empty" style={{ width: '44%' }} />
               </div>
-              <div className="timeline-ticks">
+
+              {/* Hourly Ticks from 06:00 to 12:00 */}
+              <div className="support-timeline-ticks">
+                <span>06:00</span>
+                <span>07:00</span>
+                <span>08:00</span>
                 <span>09:00</span>
+                <span>10:00</span>
                 <span>11:00</span>
-                <span>13:00</span>
-                <span>15:00</span>
-                <span>17:00</span>
-                <span>19:00</span>
+                <span>12:00</span>
+                <span>01:00</span>
+                <span>02:00</span>
+                <span>03:00</span>
+                <span>04:00</span>
+                <span>05:00</span>
+                <span>06:00</span>
+                <span>07:00</span>
+                <span>08:00</span>
+                <span>09:00</span>
+                <span>10:00</span>
+                <span>11:00</span>
+                <span>12:00</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Records Table Card */}
+          <div className="support-card-records">
+            {/* Header: Records + Actions */}
+            <div className="records-hdr-row">
+              <h3 className="records-heading">Records</h3>
+              <div className="records-actions-group">
+                <button className="btn-sort-pill">
+                  <span>Sort By : <b>Last 30 Days</b></span>
+                  <ChevronDown size={12} />
+                </button>
+                <button className="btn-action-icon" title="Select Date">
+                  <Calendar size={13} />
+                </button>
+                <button className="btn-action-icon" title="Filter Records">
+                  <Filter size={13} />
+                </button>
               </div>
             </div>
 
-            {/* Attendance Records Table */}
-            <div className="support-records-panel">
-              <div className="records-hdr">
-                <div className="records-hdr-left">
-                  <h3>Records</h3>
-                  <div className="date-picker-chip">
-                    <Calendar size={13} />
-                    <span>Today, Oct 2026</span>
-                  </div>
+            {/* Sub-header Controls & Legend Row */}
+            <div className="records-controls-row">
+              <div className="entries-selector">
+                <span>Row Per Page</span>
+                <div className="entries-select-box">
+                  <span>10</span>
+                  <ChevronDown size={11} />
                 </div>
-
-                <div className="records-hdr-right">
-                  <div className="records-search-pill">
-                    <Search size={13} color="#94A3B8" />
-                    <input type="text" placeholder="Search..." readOnly />
-                  </div>
-                  <button className="btn-table-export">
-                    <Download size={13} />
-                    <span>Export</span>
-                  </button>
-                </div>
+                <span>Entries</span>
               </div>
 
-              {/* Table Data */}
-              <div className="records-table-wrap">
-                <table className="records-table">
-                  <thead>
-                    <tr>
-                      <th>Employee</th>
-                      <th>Check-In</th>
-                      <th>Check-Out</th>
-                      <th>Total Hours</th>
-                      <th>Status</th>
-                      <th>Action</th>
+              <div className="records-search-box">
+                <Search size={13} color="#94A3B8" />
+                <input type="text" placeholder="Search" readOnly />
+              </div>
+
+              <div className="records-legend-group">
+                <span className="legend-item"><i className="legend-dot dot-green" /> Neutral</span>
+                <span className="legend-item"><i className="legend-dot dot-red" /> Low</span>
+                <span className="legend-item"><i className="legend-dot dot-blue" /> Overtime</span>
+              </div>
+            </div>
+
+            {/* Table */}
+            <div className="records-table-container">
+              <table className="records-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Check In</th>
+                    <th>Status</th>
+                    <th>Check Out</th>
+                    <th>Break</th>
+                    <th>Late</th>
+                    <th>Overtime</th>
+                    <th>Production Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ATTENDANCE_RECORDS.map((rec) => (
+                    <tr key={rec.id}>
+                      <td><span className="cell-date">{rec.date}</span></td>
+                      <td>{rec.checkIn}</td>
+                      <td>
+                        <span className={`status-tag status-${rec.statusType}`}>
+                          <i className="status-dot" /> {rec.status}
+                        </span>
+                      </td>
+                      <td>{rec.checkOut}</td>
+                      <td>{rec.breakTime}</td>
+                      <td>{rec.late}</td>
+                      <td>{rec.overtime}</td>
+                      <td><strong>{rec.productionHours}</strong></td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {ATTENDANCE_RECORDS.map((rec) => (
-                      <tr key={rec.id}>
-                        <td>
-                          <div className="employee-info-cell">
-                            <div className="cell-avatar">{rec.avatar}</div>
-                            <div>
-                              <strong>{rec.name}</strong>
-                              <small>{rec.role}</small>
-                            </div>
-                          </div>
-                        </td>
-                        <td>{rec.checkIn}</td>
-                        <td>{rec.checkOut}</td>
-                        <td><strong>{rec.hours}</strong></td>
-                        <td>
-                          <span className={`status-pill status-${rec.statusTheme}`}>
-                            {rec.status}
-                          </span>
-                        </td>
-                        <td>
-                          <button className="btn-row-action">View</button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                  ))}
+                </tbody>
+              </table>
             </div>
+          </div>
+
+          {/* Floating Yellow Attendance Badge at Bottom Right matching Reference */}
+          <div className="support-floating-yellow-badge">
+            <span className="support-yellow-val">+24%</span>
+            <span className="support-yellow-label">attendance this quarter</span>
           </div>
         </div>
       </div>

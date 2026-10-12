@@ -113,15 +113,15 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                     value={formData.teamSize}
                     onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
                   >
-                    <option value="1-50">1 - 50 employees</option>
-                    <option value="50-200">50 - 200 employees</option>
-                    <option value="200-1000">200 - 1,000 employees</option>
-                    <option value="1000+">1,000+ enterprise</option>
+                    <option value="1-50">1 - 5 employees</option>
+                    <option value="50-200">10 - 50 employees</option>
+                    <option value="200-1000">50 - 1,00 employees</option>
+                    <option value="1000+">1,00+ enterprise</option>
                   </select>
                 </div>
               </div>
 
-              <div className="interest-modules-group">
+              {/* <div className="interest-modules-group">
                 <label className="group-label">Select solutions of interest:</label>
                 <div className="modules-checkboxes">
                   <label className={`checkbox-pill ${formData.modules.people ? 'is-selected' : ''}`}>
@@ -157,8 +157,8 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                     <span>Learning</span>
                   </label>
                 </div>
-              </div>
-{/* saurabh */}
+              </div> */}
+              {/* saurabh */}
               <button type="submit" className="interest-submit-btn">
                 <span>Submit Your Request</span>
                 <ArrowRight size={16} />

@@ -1,89 +1,120 @@
 import React from 'react';
 import AaraliaLogo from './AaraliaLogo';
-import { ArrowRight, ShieldCheck, Heart } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="footer-root">
-      <div className="footer-container">
-        {/* Top Banner / Callout */}
-        <div className="footer-banner-box">
-          <div className="footer-banner-content">
-            <span className="footer-badge">READY TO UNIFY YOUR TEAMS?</span>
-            <h3 className="footer-banner-title">
-              Start building a connected, intelligent organization today.
-            </h3>
-            <p className="footer-banner-sub">
-              Talk with our product architects and see how Aaralia adapts to your custom operational architecture.
-            </p>
+    <footer className="footer-master-root">
+      {/* 1. Dark CTA Banner matching Image 1 */}
+      <div className="footer-cta-container">
+      <div className="dark-cta-card">
+          {/* Subtle concentric ripple background circles matching Image 1 */}
+          <div className="cta-concentric-rings" aria-hidden="true">
+            <div className="ring ring-1" />
+            <div className="ring ring-2" />
+            <div className="ring ring-3" />
+            <div className="ring ring-4" />
           </div>
-          <div className="footer-banner-actions">
-            <button className="footer-cta-btn" onClick={onOpenDemoModal}>
-              <span>Show your Interest</span>
-              <ArrowRight size={16} />
-            </button>
-            <button className="footer-secondary-btn" onClick={onSwitchToDashboard}>
-              <span>Explore Live Dashboard</span>
-            </button>
+
+          <div className="dark-cta-inner-content">
+            <span className="dark-cta-eyebrow">YOUR SMARTER WAY OF WORKING STARTS HERE</span>
+
+            <h2 className="dark-cta-title">
+              Register now to unlock<br />
+              exclusive launch pricing.
+            </h2>
+
+            <p className="dark-cta-subtitle">
+              See how Aaralia can simplify operations, empower your people,<br className="hide-mobile" />
+              and help your business become more human.
+            </p>
+
+            <div className="dark-cta-btn-wrapper">
+              <button
+                type="button"
+                className="dark-cta-talk-btn"
+                onClick={onOpenDemoModal}
+              >
+                Talk to our team
+              </button>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Links Grid */}
-        <div className="footer-links-grid">
-          <div className="footer-brand-column">
-            <AaraliaLogo variant="light" size="default" showPoweredBy={true} />
-            <p className="footer-brand-bio">
-              The unified operational layer connecting people, CRM, payroll, and learning into one intelligent ecosystem.
-            </p>
-            <div className="footer-security-pill">
-              <ShieldCheck size={16} color="#0D9488" />
-              <span>SOC2 Type II & GDPR Compliant</span>
+      {/* 2. Clean White Footer matching Image 1 */}
+      <div className="white-footer-wrapper">
+        <div className="white-footer-container">
+          {/* Main Links Row */}
+          <div className="footer-main-row">
+            {/* Left Brand Column */}
+            <div className="footer-left-brand-col">
+              <div
+                className="footer-logo-wrap"
+                onClick={scrollToTop}
+                style={{ cursor: 'pointer' }}
+              >
+                <AaraliaLogo variant="light" size="default" showPoweredBy={false} />
+              </div>
+              <p className="footer-companion-text">
+                The intelligent business companion for people, processes, and performance.
+              </p>
+            </div>
+
+            {/* Right Navigation Links Columns matching Image 1 */}
+            <div className="footer-right-nav-col">
+              <div className="footer-nav-columns-grid">
+                {/* Column 1 */}
+                <div className="nav-col-item">
+                  <a href="#dashboard-preview" className="footer-nav-link">Platform</a>
+                  <a href="#support-section" className="footer-nav-link">Why Aaralia</a>
+                </div>
+
+                {/* Column 2 */}
+                <div className="nav-col-item">
+                  <a href="#ai-section" className="footer-nav-link">Aaralia AI</a>
+                  <button type="button" className="footer-nav-link-btn" onClick={onOpenDemoModal}>
+                    Contact
+                  </button>
+                </div>
+
+                {/* Column 3 */}
+                <div className="nav-col-item">
+                  <a href="#solutions" className="footer-nav-link">Solutions</a>
+                </div>
+              </div>
+
+              {/* Scroll To Top Chevron Arrow matching Image 1 */}
+              <button
+                type="button"
+                className="footer-scroll-top-btn"
+                onClick={scrollToTop}
+                aria-label="Scroll to top of page"
+                title="Back to top"
+              >
+                <ChevronUp size={22} strokeWidth={2.5} />
+              </button>
             </div>
           </div>
 
-          <div className="footer-col">
-            <h4>Solutions</h4>
-            <ul>
-              <li><a href="#solutions">People & HR Platform</a></li>
-              <li><a href="#solutions">Customer Context CRM</a></li>
-              <li><a href="#solutions">Automated Payroll</a></li>
-              <li><a href="#solutions">Continuous Learning</a></li>
-            </ul>
-          </div>
+          {/* Thin Horizontal Divider Line matching Image 1 */}
+          <div className="footer-horizontal-divider" />
 
-          <div className="footer-col">
-            <h4>Intelligence</h4>
-            <ul>
-              <li><a href="#ai-section">Aaralia AI Assistant</a></li>
-              <li><a href="#ai-section">Predictive Retention Engine</a></li>
-              <li><a href="#ai-section">Cross-System Context Sync</a></li>
-              <li><a href="#ai-section">Decision Playbooks</a></li>
-            </ul>
-          </div>
+          {/* Bottom Bar Info Row matching Image 1 */}
+          <div className="footer-bottom-info-row">
+            <span className="footer-copyright-text">
+              © 2026 Aaura Softwares. All rights reserved.
+            </span>
 
-          <div className="footer-col">
-            <h4>Platform</h4>
-            <ul>
-              <li><button onClick={onSwitchToDashboard}>Interactive Admin Console</button></li>
-              <li><a href="#dashboard-preview">Operating Layer Architecture</a></li>
-              <li><button onClick={onOpenDemoModal}>Book a Custom Walkthrough</button></li>
-              <li><a href="#solutions">System Integrations</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="footer-bottom-bar">
-          <p className="copyright-text">
-            © {new Date().getFullYear()} Aaralia Inc. Powered by Aaura Softwares. All rights reserved.
-          </p>
-          <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <span className="dot-sep">•</span>
-            <a href="#">Terms of Service</a>
-            <span className="dot-sep">•</span>
-            <a href="#">Security Overview</a>
+            <div className="footer-contact-emails">
+              <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a>
+              <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a>
+            </div>
           </div>
         </div>
       </div>

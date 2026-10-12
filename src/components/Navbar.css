@@ -1,3 +1,60 @@
+/* Top Full-Width Announcement Bar matching Image */
+.top-announcement-bar {
+  width: 100%;
+  background: #0E2338;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.announcement-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: opacity 0.2s ease;
+}
+
+.announcement-content:hover {
+  opacity: 0.9;
+}
+
+.announcement-pill {
+  background: #E85739;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 750;
+  padding: 4.5px 9px;
+  border-radius: 9999px;
+  letter-spacing: 0.2px;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.announcement-text {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: -0.1px;
+}
+
+.announcement-arrow {
+  color: #FFFFFF;
+  font-size: 13px;
+  transition: transform 0.2s ease;
+}
+
+.announcement-content:hover .announcement-arrow {
+  transform: translateX(3px);
+}
+
+/* Main Navbar Header */
 .navbar-header {
   position: sticky;
   top: 0;
@@ -9,7 +66,7 @@
 }
 
 .navbar-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 12px rgba(12, 21, 35, 0.04);
@@ -18,7 +75,7 @@
 .navbar-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 18px 48px;
+  padding: 16px 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +89,7 @@
 .navbar-menu-btn {
   width: 42px;
   height: 42px;
-  border-radius: 10px;
+  border-radius: 50%;
   border: 1px solid #E2E8F0;
   background: #FFFFFF;
   color: #0B1320;
@@ -80,7 +137,7 @@
 }
 
 .navbar-dropdown-cta {
-  background: #E85739;
+  background: #0B1320;
   color: #FFFFFF;
   font-weight: 700;
   font-size: 13.5px;
@@ -88,16 +145,45 @@
   border-radius: 8px;
   margin-top: 6px;
   text-align: center;
+  cursor: pointer;
+  border: none;
   transition: background 0.2s ease;
 }
 
 .navbar-dropdown-cta:hover {
+  background: #1E293B;
+}
+
+.navbar-dropdown-demo {
+  background: #E85739;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.navbar-dropdown-demo:hover {
   background: #D74628;
 }
 
 @media (max-width: 768px) {
+  .top-announcement-bar {
+    font-size: 11.5px;
+    padding: 7px 12px;
+  }
+  .announcement-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
   .navbar-container {
-    padding: 16px 24px;
+    padding: 14px 20px;
   }
   .navbar-dropdown-menu {
     right: 20px;

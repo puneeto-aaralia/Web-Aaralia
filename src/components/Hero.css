@@ -1,18 +1,18 @@
 .hero-master-section {
   position: relative;
   overflow: hidden;
-  padding: 72px 0 52px 0;
+  padding: 44px 0 32px 0;
   background-color: #FFFFFF;
 }
 
-/* Background Peach Decorative Circle matching Figma Screenshot */
+/* Background Peach Decorative Circle matching Figma Image 2 */
 .hero-peach-circle {
   position: absolute;
-  top: 48%;
-  right: 4%;
+  top: 35%;
+  right: 14%;
   transform: translateY(-50%);
-  width: clamp(440px, 42vw, 580px);
-  height: clamp(440px, 42vw, 580px);
+  width: clamp(396px, 27vw, 458px);
+  height: clamp(278px, 30vw, 477px);
   border-radius: 50%;
   background: #FEEAE3;
   pointer-events: none;
@@ -34,55 +34,62 @@
 
 /* Eyebrow Pill */
 .hero-eyebrow-wrapper {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .hero-ai-badge {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 6px 14px;
+  padding: 5px 13px;
   background: #F1F4F9;
   border: 1px solid #E2E8F0;
   border-radius: var(--radius-full);
 }
 
 .hero-sparkle-icon {
-  color: #0F172A;
+  color: #0B1320;
 }
 
 .hero-ai-badge-text {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: #0F172A;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: #0B1320;
   text-transform: uppercase;
+  font-family: var(--font-family);
+  font-synthesis: none;
 }
 
-/* Headline */
+/* Headline matching exact screenshot geometry & weight */
 .hero-master-title {
-  font-size: clamp(42px, 5.2vw, 72px);
-  font-weight: 850;
-  line-height: 1.1;
-  letter-spacing: -2px;
+  font-size: clamp(38px, 4.3vw, 58px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
   color: #0B1320;
-  max-width: 900px;
-  margin: 0 0 22px 0;
+  max-width: 980px;
+  margin: 0 0 20px 0;
+  font-family: var(--font-family);
+  font-synthesis: none;
 }
 
 .hero-coral-accent {
   color: #E85739;
   display: inline-block;
+  font-weight: 700;
 }
 
-/* Subtitle */
+/* Subtitle matching exact 2-line wrap in screenshot */
 .hero-master-sub {
-  font-size: 18.5px;
+  font-size: 17px;
   line-height: 1.6;
   color: #526071;
-  max-width: 720px;
-  margin: 0 0 54px 0;
-  font-weight: 450;
+  max-width: 928px;
+  margin: 0 0 38px 0;
+  font-weight: 400;
+  font-family: var(--font-family);
+  font-synthesis: none;
 }
 
 /* Horizontally Centered CTA Button Container */
@@ -90,28 +97,30 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 42px;
+  margin-bottom: 26px;
 }
 
 .hero-primary-cta {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   background: #E85739;
   color: #FFFFFF;
-  padding: 16px 38px;
+  padding: 14px 34px;
   border-radius: var(--radius-full);
-  font-size: 16px;
-  font-weight: 700;
-  box-shadow: 0 12px 28px -4px rgba(232, 87, 57, 0.45);
+  font-size: 15.5px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px -3px rgba(232, 87, 57, 0.42);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  font-family: var(--font-family);
+  font-synthesis: none;
 }
 
 .hero-primary-cta:hover {
   background: #D74628;
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px -4px rgba(232, 87, 57, 0.55);
+  box-shadow: 0 14px 30px -3px rgba(232, 87, 57, 0.52);
 }
 
 .cta-arrow-icon {
@@ -128,19 +137,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 36px;
+  gap: 32px;
   flex-wrap: wrap;
+  margin-bottom: 36px;
 }
 
 .pillar-bullet {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
 
 .pillar-teal-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: #0D9488;
   flex-shrink: 0;
@@ -148,8 +158,9 @@
 
 .pillar-bullet-text {
   font-size: 14.5px;
-  font-weight: 600;
-  color: #475569;
+  font-weight: 500;
+  color: #526071;
+  font-family: var(--font-family);
 }
 
 /* Responsive */
@@ -158,14 +169,17 @@
     font-size: 44px;
     letter-spacing: -1.2px;
   }
+
   .hero-master-container {
     padding: 0 24px;
   }
+
   .hero-peach-circle {
     width: 380px;
     height: 380px;
     right: -10%;
   }
+
   .hero-pillars-center-row {
     gap: 20px;
   }
@@ -175,24 +189,30 @@
   .hero-master-section {
     padding: 44px 0 36px 0;
   }
+
   .hero-master-container {
     padding: 0 20px;
   }
+
   .hero-master-title {
     font-size: 34px;
     letter-spacing: -0.8px;
   }
+
   .hero-master-sub {
     font-size: 16px;
     margin-bottom: 36px;
   }
+
   .hero-cta-center-wrapper {
     margin-bottom: 32px;
   }
+
   .hero-primary-cta {
     width: 100%;
     justify-content: center;
   }
+
   .hero-pillars-center-row {
     flex-direction: column;
     align-items: center;

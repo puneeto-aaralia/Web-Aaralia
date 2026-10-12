@@ -88,10 +88,9 @@ export default function FeatureCards({ onExploreFeature }) {
   return (
     <section className="features-section" id="solutions">
       <div className="features-container">
-        {/* Section Header matching Figma Screenshot 1 */}
+        {/* Header Block */}
         <div className="platform-header-block">
           <div className="platform-tag-pill">
-            <span className="pill-dot" />
             <span>ONE PLATFORM. EVERY POSSIBILITY.</span>
           </div>
 
@@ -110,14 +109,14 @@ export default function FeatureCards({ onExploreFeature }) {
           </div>
         </div>
 
-        {/* 2x2 Feature Cards Grid matching Screenshots 1 & 3 */}
+        {/* 2x2 Feature Cards Grid */}
         <div className="features-grid">
           {CARDS_DATA.map((card) => {
             const IconComponent = card.icon;
             return (
               <div
                 key={card.id}
-                className={`feature-card theme-${card.theme}`}
+                className="feature-card"
                 onClick={() => handleCardClick(card)}
                 role="button"
                 tabIndex={0}
@@ -125,10 +124,10 @@ export default function FeatureCards({ onExploreFeature }) {
               >
                 {/* Icon Box */}
                 <div className={`card-icon-wrapper bg-${card.theme}`}>
-                  <IconComponent size={24} className={`icon-${card.theme}`} />
+                  <IconComponent size={20} className={`icon-${card.theme}`} />
                 </div>
 
-                {/* Uppercase Category Tag */}
+                {/* Category Tag */}
                 <span className="card-tag">{card.tag}</span>
 
                 {/* Card Title */}
@@ -140,7 +139,7 @@ export default function FeatureCards({ onExploreFeature }) {
                 {/* Card Action Link */}
                 <div className="card-action">
                   <span className="action-label">{card.linkText}</span>
-                  <ArrowRight size={16} className="action-arrow" />
+                  <ArrowRight size={15} className="action-arrow" />
                 </div>
               </div>
             );
@@ -148,7 +147,7 @@ export default function FeatureCards({ onExploreFeature }) {
         </div>
       </div>
 
-      {/* Interactive Feature Modal Preview */}
+      {/* Interactive Feature Modal */}
       {selectedModule && (
         <div className="feature-modal-backdrop" onClick={() => setSelectedModule(null)}>
           <div className="feature-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -156,7 +155,7 @@ export default function FeatureCards({ onExploreFeature }) {
               <X size={20} />
             </button>
             <div className={`modal-header-badge bg-${selectedModule.theme}`}>
-              <selectedModule.icon size={22} className={`icon-${selectedModule.theme}`} />
+              <selectedModule.icon size={20} className={`icon-${selectedModule.theme}`} />
               <span>{selectedModule.tag}</span>
             </div>
             <h3 className="modal-title">{selectedModule.title}</h3>
@@ -172,7 +171,7 @@ export default function FeatureCards({ onExploreFeature }) {
               <ul>
                 {selectedModule.details.highlights.map((item, idx) => (
                   <li key={idx}>
-                    <CheckCircle2 size={16} color="var(--brand-orange)" />
+                    <CheckCircle2 size={16} color="#0F172A" />
                     <span>{item}</span>
                   </li>
                 ))}
