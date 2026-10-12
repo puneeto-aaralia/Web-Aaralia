@@ -45,52 +45,15 @@ export default function Navbar({ activeView: _activeView, setActiveView, onOpenD
 
           {/* Hamburger Menu Icon Button matching Image 2 */}
           <button
+            type="button"
             className="navbar-menu-btn"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Dropdown Menu when clicked */}
-        {menuOpen && (
-          <div className="navbar-dropdown-menu">
-            <a href="#solutions" onClick={() => setMenuOpen(false)}>Solutions</a>
-            <a href="#ai-section" onClick={() => setMenuOpen(false)}>Meet Aaralia AI</a>
-            <a href="#hr-suite" onClick={() => setMenuOpen(false)}>The Complete HR Suite</a>
-            <a href="#dashboard-preview" onClick={() => setMenuOpen(false)}>Operating Layer</a>
-            <a href="#support-section" onClick={() => setMenuOpen(false)}>Intuitive Operations</a>
-            <button
-              type="button"
-              className="navbar-dropdown-privacy-btn"
-              onClick={() => {
-                setMenuOpen(false);
-                if (onOpenPrivacy) onOpenPrivacy();
-              }}
-            >
-              Privacy Policy
-            </button>
-            <button
-              className="navbar-dropdown-cta"
-              onClick={() => {
-                setMenuOpen(false);
-                if (setActiveView) setActiveView('dashboard');
-              }}
-            >
-              Launch Interactive Admin App
-            </button>
-            <button
-              className="navbar-dropdown-demo"
-              onClick={() => {
-                setMenuOpen(false);
-                if (onOpenDemo) onOpenDemo();
-              }}
-            >
-              Show your Interest
-            </button>
-          </div>
-        )}
+        
       </header>
     </>
   );
