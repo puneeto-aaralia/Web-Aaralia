@@ -1,0 +1,336 @@
+/* ========================================================= */
+/* PRIVACY POLICY MODAL STYLES                               */
+/* ========================================================= */
+
+.policy-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3500;
+  background: rgba(7, 17, 31, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: policyFadeIn 0.22s ease-out;
+  box-sizing: border-box;
+}
+
+@keyframes policyFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.policy-modal-dialog {
+  background: #FFFFFF;
+  border-radius: 24px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35),
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: policyScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@keyframes policyScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Header */
+.policy-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid #EEF2F6;
+  background: #FAFCFE;
+  flex-shrink: 0;
+}
+
+.policy-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.policy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #FFF0ED;
+  color: #E85739;
+  border: 1px solid rgba(232, 87, 57, 0.2);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.policy-badge-icon {
+  color: #E85739;
+}
+
+.policy-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  border: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.policy-modal-close:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  transform: rotate(90deg);
+}
+
+/* Scroll Area */
+.policy-modal-scroll-area {
+  padding: 32px 36px;
+  overflow-y: auto;
+  flex: 1;
+  position: relative;
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar */
+.policy-modal-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.policy-modal-scroll-area::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+.policy-modal-scroll-area::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+.policy-modal-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.policy-document-sheet {
+  position: relative;
+}
+
+/* Watermark Logo */
+.policy-watermark {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  max-width: 360px;
+  pointer-events: none;
+  opacity: 0.08;
+  user-select: none;
+  z-index: 0;
+}
+
+.policy-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.policy-content-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title in brand red/orange matching the screenshot */
+.policy-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #E85739;
+  letter-spacing: -0.6px;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.policy-lead-intro {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1E293B;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed #E2E8F0;
+}
+
+/* Sections List */
+.policy-sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.policy-clause-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.policy-clause-label {
+  font-size: 14.5px;
+  font-weight: 750;
+  color: #0F172A;
+  letter-spacing: -0.2px;
+}
+
+.policy-clause-text {
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.62;
+  margin: 0;
+}
+
+/* Contact link styling */
+.policy-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #E85739;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.policy-email-link:hover {
+  color: #C23A1E;
+}
+
+.inline-mail-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Footer note */
+.policy-footer-note {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed #E2E8F0;
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.policy-footer-note p {
+  margin: 0;
+}
+
+/* Modal Bottom Actions Footer */
+.policy-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: #F8FAFC;
+  border-top: 1px solid #EEF2F6;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.policy-footer-meta {
+  font-size: 12.5px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-bullet {
+  color: #CBD5E1;
+}
+
+.policy-modal-acknowledge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.policy-modal-acknowledge-btn:hover {
+  background: #E85739;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(232, 87, 57, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .policy-modal-backdrop {
+    padding: 14px;
+  }
+
+  .policy-modal-dialog {
+    border-radius: 18px;
+    max-height: 94vh;
+  }
+
+  .policy-modal-header {
+    padding: 16px 20px;
+  }
+
+  .policy-modal-scroll-area {
+    padding: 22px 20px;
+  }
+
+  .policy-title {
+    font-size: 24px;
+  }
+
+  .policy-modal-footer {
+    padding: 14px 20px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .policy-modal-acknowledge-btn {
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .policy-footer-meta {
+    justify-content: center;
+    font-size: 11.5px;
+  }
+}

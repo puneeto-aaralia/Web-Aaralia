@@ -3,7 +3,7 @@ import AaraliaLogo from './AaraliaLogo';
 import { ChevronUp } from 'lucide-react';
 import './Footer.css';
 
-export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
+export default function Footer({ onOpenDemoModal, onSwitchToDashboard, onOpenPrivacyModal }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -82,6 +82,16 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
                     Contact
                   </button>
                 </div>
+                <div className="nav-col-item">
+                  <button
+                    type="button"
+                    className="footer-nav-link-btn"
+                    onClick={onOpenPrivacyModal}
+                    id="footer-nav-privacy-btn"
+                  >
+                    Privacy Policy
+                  </button>
+                </div>
 
                 {/* Column 3 */}
                 <div className="nav-col-item">
@@ -107,12 +117,22 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard }) {
 
           {/* Bottom Bar Info Row matching Image 1 */}
           <div className="footer-bottom-info-row">
-            <span className="footer-copyright-text">
-              © 2026 Aaura Softwares. All rights reserved.
-            </span>
+            <div className="footer-bottom-left-group">
+              <span className="footer-copyright-text">
+                © 2026 Aaura Softwares. All rights reserved.
+              </span>
+              <span className="footer-meta-divider">•</span>
+              <button
+                type="button"
+                className="footer-bottom-privacy-btn"
+                onClick={onOpenPrivacyModal}
+                id="footer-bottom-privacy-btn"
+              >
+                Privacy Policy
+              </button>
+            </div>
 
             <div className="footer-contact-emails">
-              {/* <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a> */}
               <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a>
             </div>
           </div>

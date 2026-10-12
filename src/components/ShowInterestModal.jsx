@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import './ShowInterestModal.css';
 
-export default function ShowInterestModal({ isOpen, onClose }) {
+export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -24,7 +24,7 @@ export default function ShowInterestModal({ isOpen, onClose }) {
     setSubmitted(true);
   };
 
-  const handleCheckboxChange = (module) => {
+  const _handleCheckboxChange = (module) => {
     setFormData(prev => ({
       ...prev,
       modules: {
@@ -163,6 +163,20 @@ export default function ShowInterestModal({ isOpen, onClose }) {
                 <span>Submit Your Request</span>
                 <ArrowRight size={16} />
               </button>
+
+              <p className="interest-privacy-disclaimer">
+                By submitting, you agree to our{' '}
+                <button
+                  type="button"
+                  className="interest-privacy-link-btn"
+                  onClick={() => {
+                    if (onOpenPrivacy) onOpenPrivacy();
+                  }}
+                >
+                  Privacy Policy
+                </button>
+                .
+              </p>
             </form>
           </div>
         )}

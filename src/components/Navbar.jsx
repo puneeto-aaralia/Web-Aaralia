@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import AaraliaLogo from './AaraliaLogo';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
-export default function Navbar({ activeView, setActiveView, onOpenDemo }) {
+export default function Navbar({ activeView: _activeView, setActiveView, onOpenDemo, onOpenPrivacy }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -46,8 +46,8 @@ export default function Navbar({ activeView, setActiveView, onOpenDemo }) {
           {/* Hamburger Menu Icon Button matching Image 2 */}
           <button
             className="navbar-menu-btn"
-            // onClick={() => setMenuOpen(!menuOpen)}
-            // aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -61,6 +61,16 @@ export default function Navbar({ activeView, setActiveView, onOpenDemo }) {
             <a href="#hr-suite" onClick={() => setMenuOpen(false)}>The Complete HR Suite</a>
             <a href="#dashboard-preview" onClick={() => setMenuOpen(false)}>Operating Layer</a>
             <a href="#support-section" onClick={() => setMenuOpen(false)}>Intuitive Operations</a>
+            <button
+              type="button"
+              className="navbar-dropdown-privacy-btn"
+              onClick={() => {
+                setMenuOpen(false);
+                if (onOpenPrivacy) onOpenPrivacy();
+              }}
+            >
+              Privacy Policy
+            </button>
             <button
               className="navbar-dropdown-cta"
               onClick={() => {

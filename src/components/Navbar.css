@@ -136,6 +136,25 @@
   color: #0B1320;
 }
 
+.navbar-dropdown-privacy-btn {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #334155;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.navbar-dropdown-privacy-btn:hover {
+  background: #F1F5F9;
+  color: #E85739;
+}
+
 .navbar-dropdown-cta {
   background: #0B1320;
   color: #FFFFFF;

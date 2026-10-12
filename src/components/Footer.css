@@ -306,6 +306,34 @@
   color: #8A99AD;
 }
 
+.footer-bottom-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-meta-divider {
+  color: #CBD5E1;
+  font-size: 10px;
+}
+
+.footer-bottom-privacy-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12.5px;
+  color: #8A99AD;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-bottom-privacy-btn:hover {
+  color: #E85739;
+}
+
 .footer-philosophy-text {
   color: #8A99AD;
 }

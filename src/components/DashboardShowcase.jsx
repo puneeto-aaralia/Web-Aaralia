@@ -14,12 +14,27 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
 
   return (
     <section className="showcase-section" id="dashboard-preview">
-      {/* Figma SVG replaces the previous HTML dashboard mockup */}
-      <div className="showcase-svg-wrapper">
+      {/* Figma SVG preview with full responsive scaling */}
+      <div
+        className="showcase-svg-wrapper"
+        onClick={onLaunchFullDashboard}
+        title="Click to explore interactive Admin Dashboard"
+        role="button"
+        tabIndex={0}
+        aria-label="Aaralia HR dashboard preview - click to launch interactive dashboard"
+        onKeyDown={(e) => {
+          if ((e.key === 'Enter' || e.key === ' ') && onLaunchFullDashboard) {
+            e.preventDefault();
+            onLaunchFullDashboard();
+          }
+        }}
+        style={{ cursor: onLaunchFullDashboard ? 'pointer' : 'default' }}
+      >
         <img
           src={dashboardShowcaseSvg}
           alt="Aaralia HR dashboard preview"
           className="showcase-svg-image"
+          loading="lazy"
         />
       </div>
 

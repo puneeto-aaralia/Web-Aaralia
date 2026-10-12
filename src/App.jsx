@@ -8,11 +8,13 @@ import HRSuiteSection from './components/HRSuiteSection';
 import SupportSystemSection from './components/SupportSystemSection';
 import AdminDashboard from './components/AdminDashboard';
 import ShowInterestModal from './components/ShowInterestModal';
+import PrivacyPolicyModal from './components/PrivacyPolicyModal';
 import Footer from './components/Footer';
 
 function App() {
   const [activeView, setActiveView] = useState('landing'); // 'landing' | 'dashboard'
   const [isInterestModalOpen, setIsInterestModalOpen] = useState(false);
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
   // Scroll to top when switching views
   useEffect(() => {
@@ -28,6 +30,7 @@ function App() {
             activeView={activeView}
             setActiveView={setActiveView}
             onOpenDemo={() => setIsInterestModalOpen(true)}
+            onOpenPrivacy={() => setIsPrivacyModalOpen(true)}
           />
 
           <main id="main-content">
@@ -57,6 +60,7 @@ function App() {
           {/* Footer with Links and Demo CTA */}
           <Footer
             onOpenDemoModal={() => setIsInterestModalOpen(true)}
+            onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
             onSwitchToDashboard={() => setActiveView('dashboard')}
           />
         </>
@@ -69,6 +73,13 @@ function App() {
       <ShowInterestModal
         isOpen={isInterestModalOpen}
         onClose={() => setIsInterestModalOpen(false)}
+        onOpenPrivacy={() => setIsPrivacyModalOpen(true)}
+      />
+
+      {/* Official Aaralia Privacy Policy Modal */}
+      <PrivacyPolicyModal
+        isOpen={isPrivacyModalOpen}
+        onClose={() => setIsPrivacyModalOpen(false)}
       />
     </div>
   );
