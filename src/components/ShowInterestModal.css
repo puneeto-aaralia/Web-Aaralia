@@ -122,6 +122,25 @@
   box-shadow: 0 0 0 3px rgba(232, 87, 57, 0.15);
 }
 
+.interest-field input.input-invalid {
+  border-color: #EF4444;
+  background-color: #FFFDFD;
+}
+
+.interest-field input.input-invalid:focus {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.field-error-msg {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #DC2626;
+  margin-top: 3px;
+  line-height: 1.3;
+  display: block;
+}
+
 .interest-modules-group {
   margin-top: 6px;
 }

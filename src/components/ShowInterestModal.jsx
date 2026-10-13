@@ -13,7 +13,28 @@ const INITIAL_FORM_DATA = {
     crm: false,
     payroll: false,
     learning: false,
+  },
+};
+const validateEmail = (email) => {
+  if (!email || !email.trim()) {
+    return 'Work email is required';
   }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!emailRegex.test(email.trim())) {
+    return 'Please enter a valid email (e.g. name@company.com)';
+  }
+  return '';
+};
+
+const validatePhone = (phone) => {
+  if (!phone || !phone.trim()) {
+    return 'Contact number is required';
+  }
+  const digits = phone.replace(/[\s\-\(\)\+\.]/g, '');
+  if (!/^\d+$/.test(digits) || digits.length < 10 || digits.length > 15) {
+    return 'Please enter a valid contact number (at least 10 digits)';
+  }
+  return '';
 };
 
 export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
@@ -22,11 +43,43 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [submittedSnapshot, setSubmittedSnapshot] = useState(null);
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [fieldErrors, setFieldErrors] = useState({ email: '', phone: '' });
 
   if (!isOpen) return null;
 
+  const handleEmailChange = (val) => {
+    setFormData((prev) => ({ ...prev, email: val }));
+    if (fieldErrors.email) {
+      setFieldErrors((prev) => ({ ...prev, email: validateEmail(val) }));
+    }
+  };
+
+  const handlePhoneChange = (val) => {
+    setFormData((prev) => ({ ...prev, phone: val }));
+    if (fieldErrors.phone) {
+      setFieldErrors((prev) => ({ ...prev, phone: validatePhone(val) }));
+    }
+  };
+
+  const handleEmailBlur = () => {
+    setFieldErrors((prev) => ({ ...prev, email: validateEmail(formData.email) }));
+  };
+
+  const handlePhoneBlur = () => {
+    setFieldErrors((prev) => ({ ...prev, phone: validatePhone(formData.phone) }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const emailErr = validateEmail(formData.email);
+    const phoneErr = validatePhone(formData.phone);
+
+    if (emailErr || phoneErr) {
+      setFieldErrors({ email: emailErr, phone: phoneErr });
+      return;
+    }
+
     setIsSubmitting(true);
     setErrorMessage('');
 
@@ -101,6 +154,7 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
     setSubmitted(false);
     setIsSubmitting(false);
     setErrorMessage('');
+    setFieldErrors({ email: '', phone: '' });
     setFormData(INITIAL_FORM_DATA);
     setSubmittedSnapshot(null);
     onClose();
@@ -139,7 +193,7 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
               Connect your people, operations, payroll, and customer relationships in one intelligent platform.
             </p>
 
-            <form onSubmit={handleSubmit} className="interest-form">
+            <form onSubmit={handleSubmit} className="interest-form" noValidate>
               <div className="interest-input-row">
                 <div className="interest-field">
                   <label>Full Name *</label>
@@ -158,8 +212,13 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
                     required
                     placeholder="john@company.com"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) => handleEmailChange(e.target.value)}
+                    onBlur={handleEmailBlur}
+                    className={fieldErrors.email ? 'input-invalid' : ''}
                   />
+                  {fieldErrors.email && (
+                    <span className="field-error-msg">{fieldErrors.email}</span>
+                  )}
                 </div>
               </div>
 
@@ -169,10 +228,15 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
                   <input
                     type="tel"
                     required
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="e.g. 8700461037 or +1 (555) 000-0000"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    onBlur={handlePhoneBlur}
+                    className={fieldErrors.phone ? 'input-invalid' : ''}
                   />
+                  {fieldErrors.phone && (
+                    <span className="field-error-msg">{fieldErrors.phone}</span>
+                  )}
                 </div>
                 <div className="interest-field">
                   <label>Company Name *</label>
