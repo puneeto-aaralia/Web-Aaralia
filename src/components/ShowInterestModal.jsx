@@ -2,23 +2,26 @@ import React, { useState } from 'react';
 import { X, Sparkles, CheckCircle2, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 import './ShowInterestModal.css';
 
+const INITIAL_FORM_DATA = {
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  teamSize: '50-200',
+  modules: {
+    people: true,
+    crm: false,
+    payroll: false,
+    learning: false,
+  }
+};
+
 export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    teamSize: '50-200',
-    modules: {
-      people: true,
-      crm: false,
-      payroll: false,
-      learning: false,
-    }
-  });
+  const [submittedSnapshot, setSubmittedSnapshot] = useState(null);
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
 
   if (!isOpen) return null;
 
@@ -75,6 +78,11 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
       }
 
       if (response && response.ok) {
+        setSubmittedSnapshot({
+          company: formData.company,
+          contact: formData.email || formData.phone
+        });
+        setFormData(INITIAL_FORM_DATA);
         setSubmitted(true);
       } else {
         throw new Error('Email service response was not ok');
@@ -93,13 +101,15 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
     setSubmitted(false);
     setIsSubmitting(false);
     setErrorMessage('');
+    setFormData(INITIAL_FORM_DATA);
+    setSubmittedSnapshot(null);
     onClose();
   };
 
   return (
-    <div className="interest-modal-backdrop" onClick={onClose}>
+    <div className="interest-modal-backdrop" onClick={handleReset}>
       <div className="interest-modal-dialog" onClick={(e) => e.stopPropagation()}>
-        <button className="interest-modal-close" onClick={onClose} aria-label="Close modal">
+        <button className="interest-modal-close" onClick={handleReset} aria-label="Close modal">
           <X size={20} />
         </button>
 
@@ -110,8 +120,8 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
             </div>
             <h3>Thank You for Showing Interest!</h3>
             <p>
-              We've received your request for <strong>{formData.company || 'your organization'}</strong>.
-              Our enterprise team will reach out to <strong>{formData.email || formData.phone || 'you'}</strong> with an interactive sandbox demonstration tailored to your workflow.
+              We've received your request for <strong>{submittedSnapshot?.company || 'your organization'}</strong>.
+              Our enterprise team will reach out to <strong>{submittedSnapshot?.contact || 'you'}</strong> with an interactive sandbox demonstration tailored to your workflow.
             </p>
             <button className="btn-success-close" onClick={handleReset}>
               Return to Website
