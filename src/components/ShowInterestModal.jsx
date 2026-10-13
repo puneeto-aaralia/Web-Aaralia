@@ -30,7 +30,7 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
     setIsSubmitting(true);
     setErrorMessage('');
 
-    const recipientEmail = import.meta.env.VITE_LEADS_RECIPIENT_EMAIL || 'saurabh.k@aaralia.com';
+    const recipientEmail = import.meta.env.VITE_LEADS_RECIPIENT_EMAIL || 'info@aaralia.com';
     const web3Key = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
     try {
@@ -245,7 +245,7 @@ export default function ShowInterestModal({ isOpen, onClose, onOpenPrivacy }) {
                   <div className="error-text">
                     <span>{errorMessage}</span>
                     <a
-                      href={`mailto:saurabh.k@aaralia.com?subject=Aaralia Demo Request: ${encodeURIComponent(formData.company)}&body=${encodeURIComponent(
+                      href={`mailto:info@aaralia.com?subject=Aaralia Demo Request: ${encodeURIComponent(formData.company)}&body=${encodeURIComponent(
                         `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nTeam Size: ${formData.teamSize}`
                       )}`}
                       className="error-mailto-link"
