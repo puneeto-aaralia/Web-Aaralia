@@ -1,6 +1,6 @@
 import React from 'react';
 import AaraliaLogo from './AaraliaLogo';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, Phone, Mail } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer({ onOpenDemoModal, onSwitchToDashboard, onOpenPrivacyModal }) {
@@ -133,7 +133,14 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard, onOpenPri
             </div>
 
             <div className="footer-contact-emails">
-              <a href="mailto:info@aaralia.com" className="footer-email-link">info@aaralia.com</a>
+              <a href="tel:+14375232758" className="footer-email-link" title="Call Aaralia">
+                <Phone size={13} className="footer-contact-icon" />
+                <span>+1 437-523-2758</span>
+              </a>
+              <a href="mailto:info@aaralia.com" className="footer-email-link" title="Email Aaralia">
+                <Mail size={13} className="footer-contact-icon" />
+                <span>info@aaralia.com</span>
+              </a>
             </div>
           </div>
         </div>

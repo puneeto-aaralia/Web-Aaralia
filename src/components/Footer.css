@@ -341,16 +341,32 @@
 .footer-contact-emails {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 .footer-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: #8A99AD;
+  font-size: 12.5px;
   transition: color 0.15s ease;
+  text-decoration: none;
 }
 
 .footer-email-link:hover {
-  color: #0F172A;
+  color: #E85739;
+}
+
+.footer-contact-icon {
+  color: #E85739;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.footer-email-link:hover .footer-contact-icon {
+  transform: scale(1.1);
 }
 
 /* ========================================================= */
