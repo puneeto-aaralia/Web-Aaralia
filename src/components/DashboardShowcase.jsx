@@ -50,8 +50,7 @@ export default function DashboardShowcase({ onLaunchFullDashboard }) {
             <button
               key={tab.id}
               type="button"
-              className={`operating-tab-link ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
+              
             >
               {tab.label}
             </button>

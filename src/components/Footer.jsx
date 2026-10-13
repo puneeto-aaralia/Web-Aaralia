@@ -82,7 +82,7 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard, onOpenPri
                     Contact
                   </button>
                 </div>
-                <div className="nav-col-item">
+                {/* <div className="nav-col-item">
                   <button
                     type="button"
                     className="footer-nav-link-btn"
@@ -91,7 +91,7 @@ export default function Footer({ onOpenDemoModal, onSwitchToDashboard, onOpenPri
                   >
                     Privacy Policy
                   </button>
-                </div>
+                </div> */}
 
                 {/* Column 3 */}
                 <div className="nav-col-item">
